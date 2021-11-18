@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
 <a href="/testapps/gameinput"><button>Testapps</button></a>
+=======
+test
+>>>>>>> a871c760371617ad9da4b6e01248898df530c4f1
 </body>
 </html>
