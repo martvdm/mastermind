@@ -1,0 +1,17 @@
+td {
+border: 1px solid black;
+    padding: 15px;
+    border-radius: 50%;
+}
+#_1 {
+ background-color: yellow;
+}
+#_2 {
+    background-color: dodgerblue;
+}
+#_3 {
+    background-color: red;
+}
+#_4 {
+    background-color: greenyellow;
+}

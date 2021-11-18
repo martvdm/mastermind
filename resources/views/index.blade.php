@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-
+<a href="/testapps/gameinput"><button>Testapps</button></a>
 </body>
 </html>

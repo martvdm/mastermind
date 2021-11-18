@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/testapps/gameinput' ,  [App\Http\Controllers\setinputvalueController::class, 'index']);
+
+Route::post('/testapps/gameinput' ,  [App\Http\Controllers\setinputvalueController::class, 'index']);
