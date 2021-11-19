@@ -6,10 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
 </head>
 <body>
-
-<a href="/testapps/gameinput"><button>Testapps</button></a>
-
+<div class="testcontainer">
+<a href="/testapps/gameinput"><button style="margin: auto; max-width: 50%;">Testapps</button></a>
+</div>
 </body>
 </html>

@@ -24,6 +24,15 @@
     <button name="selectedcolor" value="{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
         @endfor
     </form>
+<form id="active form" method="post">
+@csrf
+    @if(isset($settedcell))
+    @for($i = 1; $i <= 4; $i++)
+
+    <button name="activeform" value="cell{{$i}}" type="submit" class="selectfield" id="_{{$settedcell}}"></button>
+    @endfor
+    @endif
+</form>
 </div>
 </body>
 </html>
