@@ -15,3 +15,20 @@ border: 1px solid black;
 #_4 {
     background-color: greenyellow;
 }
+.selectcontainer {
+    display: flex;
+    flex-direction: row;
+
+}
+.selectfield {
+    display: flex;
+    padding: 50px;
+    border-radius: unset;
+
+}
+.selectfield:focus  {
+    border: 4px dotted blue;
+}
+.selectfield:active {
+    border: 4px dotted blue;
+}

@@ -9,18 +9,32 @@ class setinputvalueController extends Controller
 {
 
 
-    public function index()
-
+    public function index(Request $request)
     {
-        $maxcolorid = 4;
-        $gameid = Session::get('gameid');
+       $selectedcolorsession = Session::get('selectedcolor');
+        $selectedcolorrequest = $request->selectedcolor;
+        if (isset($selectedcolorrequest)) {
+            Session::put('selectedcolor' , $selectedcolorrequest);
+            $selectedcolor = $selectedcolorrequest;
+        } elseif (isset($selectedcolorsession)) {
 
-        if (!isset($gameid)) {
-            $gameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)];
-            Session::put('gameid', $gameid);
+            $selectedcolor = Session::get('selectedcolor');
 
-        };
-
-        return view('testapps.gameinput', ['gameid' => $gameid]);
+        } else {
+            $selectedcolor = '';
+        }
+  return view('testapps.gameinput', ['selectedcolor' => $selectedcolor]);
     }
+
 }
+//{
+////$selectedcolorrequest = $request->selectedcolor;
+////$selectedcolorsession = Session::get('selectedcolor');
+////if (isset($selectedcolorsession)) {
+////$selectedcolor = $selectedcolorsession;
+////} else {
+////    $selectedcolor = $selectedcolorrequest;
+////    Session::put('selectedcolor', $selectedcolorrequest);
+////}
+////return view('testapps.gameinput', ['selectedcolor' => $selectedcolor]);
+////}

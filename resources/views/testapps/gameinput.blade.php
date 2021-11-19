@@ -11,19 +11,19 @@
 <body>
 @if(isset($gameid))
 
-        {{$gameid[0] . $gameid[1] . $gameid[2] . $gameid[3]}}
+    {{$gameid[0] . $gameid[1] . $gameid[2] . $gameid[3]}}
 
 @endif
+@if(isset($selectedcolor))
+{{$selectedcolor}}
+@endif
+<div class="selectcontainer">
     <form method="post">
-        @csrf <label style="font-size: 25px;">Kies:<br></label>
-        <select name="number">
-            <option value="item-1">Item 1</option>
-            <option value="item-2">Item 2</option>
-            <option value="item-3">Item 3</option>
-            <option value="item-4">Item 4</option>
-        </select>
-        <input type="submit">
+        @csrf
+        @for($i = 1; $i <= 4; $i++)
+    <button name="selectedcolor" value="{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
+        @endfor
     </form>
-
+</div>
 </body>
 </html>
