@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
 </head>
 <body>
-@if(isset($gameid))
+@if(isset($randomgameid))
 
-    {{$gameid[0] . $gameid[1] . $gameid[2] . $gameid[3]}}
+    {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
 
 @endif
 
