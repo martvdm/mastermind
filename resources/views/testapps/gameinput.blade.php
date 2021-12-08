@@ -14,6 +14,7 @@
     {{$gameid[0] . $gameid[1] . $gameid[2] . $gameid[3]}}
 
 @endif
+
 @if(isset($selectedcolor))
 {{$selectedcolor}}
 @endif
@@ -25,12 +26,12 @@
         @endfor
     </form>
 <form id="active form" method="post">
-@csrf
-    @if(isset($settedcell))
-    @for($i = 1; $i <= 4; $i++)
 
-    <button name="activeform" value="cell{{$i}}" type="submit" class="selectfield" id="_{{$settedcell}}"></button>
-    @endfor
+    @if(isset($settedcell))
+
+        @for($i = 1; $i <= 4; $i++)
+    <button name="activeform" value="cell{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
+        @endfor
     @endif
 </form>
 </div>
