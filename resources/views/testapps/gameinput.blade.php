@@ -10,30 +10,34 @@
 </head>
 <body>
 @if(isset($randomgameid))
-
+<div class="secretcodecontainer">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
-
+</div>
 @endif
 
-@if(isset($selectedcolor))
-{{$selectedcolor}}
-@endif
-<div class="selectcontainer">
-    <form method="post">
-        @csrf
-        @for($i = 1; $i <= 4; $i++)
-    <button name="selectedcolor" value="{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
-        @endfor
-    </form>
-<form id="active form" method="post">
 
-    @if(isset($settedcell))
 
-        @for($i = 1; $i <= 4; $i++)
-    <button name="activeform" value="cell{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
-        @endfor
-    @endif
-</form>
+<div class="rowdirector">
+    <div class="selectcontainer">
+        <form method="post">
+            @csrf
+            @for($i = 1; $i <= 4; $i++)
+                <button name="selectedcolor" value="{{$i}}" type="submit" class="selectfield" id="_{{$i}}"></button>
+            @endfor
+        </form>
+
+    </div>
+@foreach($playboard as $stagerows)
+        <div class="columndirector">
+        @foreach($stagerows as $cells)
+
+                <div class="selectfield" style="border: 2px solid black">
+                {{$cells}}
+
+                </div>
+        @endforeach
+        </div>
+@endforeach
 </div>
 </body>
 </html>

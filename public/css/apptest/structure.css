@@ -1,8 +1,23 @@
+body {
+    background-color: #4a5568;
+}
+.rowdirector {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.columndirector {
+    display: flex;
+    flex-direction: column;
+}
 td {
 border: 1px solid black;
     padding: 15px;
     border-radius: 50%;
 }
+
 #_1 {
  background-color: yellow;
 }
@@ -21,7 +36,7 @@ border: 1px solid black;
 .selectcontainer {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    margin-right: 0;
 
 }
 .selectfield {
@@ -45,4 +60,19 @@ border: 1px solid black;
     margin-top: auto;
     justify-content: center;
     z-index: 0;
+}
+.secretcodecontainer
+{
+    font-family: Courier New;
+    font-size: 40px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    width: min-content;
+
+    padding: 10px;
+
+    border: 3px limegreen solid;
+    color: limegreen;
+    background-color: #1a202c;
+
 }
