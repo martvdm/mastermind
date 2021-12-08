@@ -12,6 +12,7 @@
 @if(isset($randomgameid))
 <div class="secretcodecontainer">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
+    <label>Secret GameID:</label>
 </div>
 @endif
 
@@ -31,13 +32,21 @@
         <div class="columndirector">
         @foreach($stagerows as $cells)
 
-                <div class="selectfield" style="border: 2px solid black">
+                <div class="selectfield">
                 {{$cells}}
 
                 </div>
         @endforeach
         </div>
 @endforeach
+    <div class="columndirector">
+    @foreach($randomgameid as $singlegameid)
+        <div class="selectfield locked" id="_{{$singlegameid}}">
+        </div>
+    @endforeach
+    </div>
+
 </div>
+
 </body>
 </html>

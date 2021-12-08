@@ -51,8 +51,7 @@ class loadsessiongameController extends Controller
         $randomgameid = Session::get('randomgameid');
         ##
         if (!isset($randomgameid)) {                ## Check on existing game-session, else? make new session + random ID
-            $randomgameid =
-                rand(1, $maxcolorid) . rand(1, $maxcolorid) . rand(1, $maxcolorid) . rand(1, $maxcolorid); ##   Makes new Random ID
+            $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
 
 
             Session::put('randomgameid', $randomgameid); ## Puts Random ID in game Session
@@ -78,7 +77,7 @@ class loadsessiongameController extends Controller
     {
 
 
-        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid')]);            ## Return back to view with existing game-session
+        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'), 'playboard' => Session::get('playboard')]);            ## Return back to view with existing game-session
     }
 }
 
