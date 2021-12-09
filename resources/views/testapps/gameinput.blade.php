@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
 </head>
 <body>
+
 @if(isset($randomgameid))
 <div class="secretcodecontainer">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
@@ -19,7 +20,7 @@
 
 
 <div class="rowdirector">
-    <div class="selectcontainer">
+    <div class="selectcontainer" style="margin-right: 5%">
         <form method="post">
             @csrf
             @for($i = 1; $i <= 4; $i++)
@@ -30,13 +31,17 @@
     </div>
 @foreach($playboard as $stagerows)
         <div class="columndirector">
+
+            <form method="post" name="setcellcolor">
+                <input name="stageindex" type="hidden" value="{{ $loop->index}}">
+                @csrf
+
         @foreach($stagerows as $cells)
 
-                <div class="selectfield">
-                {{$cells}}
+                <button class="selectfield" id="_{{$cells}}" name="cellindex" value="{{$loop->index}}">
 
-                </div>
         @endforeach
+            </form>
         </div>
 @endforeach
     <div class="columndirector">
@@ -47,6 +52,6 @@
     </div>
 
 </div>
-
+<button class="checkbutton"> Check </button>
 </body>
 </html>

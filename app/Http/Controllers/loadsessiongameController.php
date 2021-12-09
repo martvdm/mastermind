@@ -32,11 +32,11 @@ class loadsessiongameController extends Controller
         ## Gets existing playboard array out of session
         ### !If playboard array doesn't exist:
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-        if  (!isset($playboard)) { # If playboard doesn't exist:
-                                   #  ↓
+        if (!isset($playboard)) { # If playboard doesn't exist:
+            #  ↓
             $playboard = array(); # Say playboard is an array
             for ($i = 0; $i <= 10; $i++) { # Loop the row (Stages) 10 times in the playboard array.
-            $playboard[]= ['', '', '', '']; # < The looping array. (Stages)
+                $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
             }
             Session::put('playboard', $playboard); # Put the entire (empty)playboard in the session.
         }
@@ -73,11 +73,49 @@ class loadsessiongameController extends Controller
     ///
     ///     Pushes selected color id into Array playboard.
 ###############################################
-    public function store()
+    public function store(Request $request)
     {
+        #####
+        #      !!!Color selector!!!
+        #
+        #      !Creates an variable that contains the selected colorID's.
+        #      !Creates an variable that checkmark a colorselector with css.
+        #
+        /////////////
+        $selectedcolorid = $request->selectedcolor;
+        #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        ## Gets existing selectedcolorID out of session.
+        ## When selectedcolorID does not exist in session:
+        #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        if (isset($selectedcolorid)) { #Checks if selectedcolorID exists in session
+            #  If not exists: ↓ ↓ ↓ ↓ ↓ ↓ ↓
+            $selectedcolorid = $request->selectedcolor; # Get the selectedcolorID out of post.
+            Session::put('selectedcolorid', $selectedcolorid); # SelectedcolorID put in session, cause session does not exist.
+        } elseif (!isset($selectedcolorid)) {
+            $selectedcolorid = Session::get('selectedcolorid');
+        }
+        //////////////////////////////////////////////////////////////
+        /// End: colorselector code.
+        ///
+        /// Start: Put in cell code.
+        /// //////////////////////////////////////////////////////////
+        $stageindex = $request->stageindex; #!!!Index in $Playboard[]!!!
+        $cellindex = $request->cellindex;   #!!!Index in $Playboard[1]!!!
+        $currentstageindex = 0; # Current stage
+        ////
+
+        $playboard = Session::get('playboard');
+
+        if (isset($stageindex) && (isset($cellindex)) && ($stageindex == $currentstageindex)) {
+            $playboard[$stageindex][$cellindex] = $selectedcolorid;
+            Session::put('playboard', $playboard);
+        }
 
 
-        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'), 'playboard' => Session::get('playboard')]);            ## Return back to view with existing game-session
+        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'),
+            'selectedcolorid' => $selectedcolorid,
+            'playboard' => $playboard,
+            'currentstageindex' => $currentstageindex]);            ## Return back to view with existing game-session
+
     }
 }
-
