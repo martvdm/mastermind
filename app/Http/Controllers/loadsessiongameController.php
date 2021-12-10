@@ -80,7 +80,6 @@ class loadsessiongameController extends Controller
         #
         #      !Creates an variable that contains the selected colorID's.
         #      !Creates an variable that checkmark a colorselector with css.
-        #
         /////////////
         $selectedcolorid = $request->selectedcolor;
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
@@ -96,7 +95,6 @@ class loadsessiongameController extends Controller
         }
         //////////////////////////////////////////////////////////////
         /// End: colorselector code.
-        ///
         /// Start: Put in cell code.
         /// //////////////////////////////////////////////////////////
         $stageindex = $request->stageindex; #!!!Index in $Playboard[]!!!
@@ -106,20 +104,25 @@ class loadsessiongameController extends Controller
 
         $playboard = Session::get('playboard'); // Get playboard session
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        #   Import playboard, then:
         ## Check if the indexes are set and if the current stage is:
-        ##      !Identicle
-        #
+        ##      !Identical to the input stage
+        #       !If the both inputs are given to the function
+        #   Gives:
+        #       !The index of the targetcell the value of the selectedcolorid
+        #       !The playboard back to session
+        #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 
-        if (isset($stageindex) && (isset($cellindex)) && ($stageindex == $currentstageindex)) {
-            $playboard[$stageindex][$cellindex] = $selectedcolorid;
-            Session::put('playboard', $playboard);
+        if (isset($stageindex) && (isset($cellindex)) && ($stageindex == $currentstageindex)) { # Check on Identical stage && If the both vars are set
+            $playboard[$stageindex][$cellindex] = $selectedcolorid; # Adds the colorID to the array index of the target cell
+            Session::put('playboard', $playboard); # Puts the playboard back in the session
         }
 
 
-        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'),
-            'selectedcolorid' => $selectedcolorid,
-            'playboard' => $playboard,
-            'currentstageindex' => $currentstageindex]);            ## Return back to view with existing game-session
+        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'), ## Returns the randomgameID into blade
+            'selectedcolorid' => $selectedcolorid, ## Returns the selectedcolorID into blade
+            'playboard' => $playboard,  ## Returns the playboard into blade
+            'currentstageindex' => $currentstageindex]); ##Returns the stage of the playboard into blade
 
     }
 }

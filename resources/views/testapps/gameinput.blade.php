@@ -33,7 +33,7 @@
         <div class="columndirector">
 
             <form method="post" name="setcellcolor">
-                <input name="stageindex" type="hidden" value="{{ $loop->index}}">
+                <input name="stageindex" type="hidden" value="{{$loop->index}}">
                 @csrf
 
         @foreach($stagerows as $cells)
