@@ -104,7 +104,11 @@ class loadsessiongameController extends Controller
         $currentstageindex = 0; # Current stage
         ////
 
-        $playboard = Session::get('playboard');
+        $playboard = Session::get('playboard'); // Get playboard session
+        #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        ## Check if the indexes are set and if the current stage is:
+        ##      !Identicle
+        #
 
         if (isset($stageindex) && (isset($cellindex)) && ($stageindex == $currentstageindex)) {
             $playboard[$stageindex][$cellindex] = $selectedcolorid;

@@ -52,6 +52,7 @@
     </div>
 
 </div>
-<button class="checkbutton"> Check </button>
+
+<a href="/check"> <button class="checkbutton" type="submit"> Check </button></a>
 </body>
 </html>

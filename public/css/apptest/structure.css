@@ -82,6 +82,10 @@ border: 1px solid black;
 .secretcodecontainer label {
     font-size: 10px;
 }
+a {
+    text-decoration: unset;
+    color: currentColor;
+}
 .checkbutton {
     cursor: pointer;
     padding: 25px;
