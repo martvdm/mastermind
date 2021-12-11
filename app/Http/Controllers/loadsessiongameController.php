@@ -27,6 +27,7 @@ class loadsessiongameController extends Controller
         #          - The play board row array which , contains:
         #               - Every cell in row (stage)
         /////////////
+
         $playboard = Session::get('playboard');
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
         ## Gets existing playboard array out of session
@@ -35,11 +36,16 @@ class loadsessiongameController extends Controller
         if (!isset($playboard)) { # If playboard doesn't exist:
             #  ↓
             $playboard = array(); # Say playboard is an array
+            $playboardcheck = array();
             for ($i = 0; $i <= 10; $i++) { # Loop the row (Stages) 10 times in the playboard array.
                 $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
+                $playboardcheck[] = [null, null, null, null];
             }
-            Session::put('playboard', $playboard); # Put the entire (empty)playboard in the session.
+
+            Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
+            Session::put('playboardcheck', $playboardcheck); # Put the entire (empty)playboard checks in the session.
         }
+
 
 
         //////////////////////////////////////////////////////////////
@@ -57,9 +63,24 @@ class loadsessiongameController extends Controller
             Session::put('randomgameid', $randomgameid); ## Puts Random ID in game Session
 
         };
+        //////////////////////////////////////////////////////////////
+        /// End random gameID generator
+        ///
+        /// Current stage code
+        /// //////////////////////////////////////////////////////////
+        $currentstageindex = Session::get('currentstageindex');
+        if (!isset($currentstageindex)) {
+            $currentstageindex = 0;
+            Session::put('currentstageindex', $currentstageindex);
+        }
 
-        return view('testapps.gameinput', ['randomgameid' => $randomgameid, 'playboard' => $playboard]); ## Returns view with Random game ID
+        return view('testapps.gameinput', ['randomgameid' => $randomgameid,
+            'playboard' => $playboard,
+            'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
+            'playboardcheck' =>  Session::get('playboardcheck')]);
     }
+
+
 
 ###############################################
     ## Authors: Mart van der Molen
@@ -99,7 +120,7 @@ class loadsessiongameController extends Controller
         /// //////////////////////////////////////////////////////////
         $stageindex = $request->stageindex; #!!!Index in $Playboard[]!!!
         $cellindex = $request->cellindex;   #!!!Index in $Playboard[1]!!!
-        $currentstageindex = 0; # Current stage
+        $currentstageindex = Session::get('currentstageindex'); # Current stage
         ////
 
         $playboard = Session::get('playboard'); // Get playboard session
@@ -122,7 +143,8 @@ class loadsessiongameController extends Controller
         return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'), ## Returns the randomgameID into blade
             'selectedcolorid' => $selectedcolorid, ## Returns the selectedcolorID into blade
             'playboard' => $playboard,  ## Returns the playboard into blade
-            'currentstageindex' => $currentstageindex]); ##Returns the stage of the playboard into blade
+            'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
+            'playboardcheck' =>  Session::get('playboardcheck')]);
 
     }
 }

@@ -1,9 +1,33 @@
 body {
     background-color: #4a5568;
 }
+
+.secretcode {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+}
 .locked {
     background-image: url("/images/lock.png");
     background-size: cover;
+
+}
+.check2 {
+    background: url("/images/good.png");
+
+    background-size: cover;
+}
+.check1 {
+    background: url("/images/contains.png");
+    background-size: cover;
+    backdrop-filter: drop-shadow(5px 5px 5px black);
+}
+.check0 {
+    background: url("/images/notgood.png");
+    background-size: cover;
+    backdrop-filter: drop-shadow(5px 5px 5px black);
+
 }
 .rowdirector {
     display: flex;
@@ -11,6 +35,7 @@ body {
     display: flex;
     margin: auto;
     justify-content: center;
+
 }
 .columndirector {
     display: flex;
@@ -33,7 +58,22 @@ border: 1px solid black;
 #_4 {
     background-color: greenyellow;
 }
+.yellowcursor * {
 
+    cursor: url('/images/yellowcursor.png'), auto;
+}
+.bluecursor * {
+
+    cursor: url('/images/bluecursor.png'), auto;
+}
+.redcursor * {
+
+    cursor: url('/images/redcursor.png'), auto;
+}
+.greencursor * {
+
+    cursor: url('/images/greencursor.png'), auto;
+}
 .selectcontainer {
     display: flex;
     flex-direction: row;
@@ -48,6 +88,10 @@ border: 1px solid black;
     padding: 50px;
     border-radius: unset;
 
+}
+.colorselecter {
+    cursor: crosshair;
+    z-index: 100;
 }
 .selectfield:focus  {
     border: 2px dotted blue;
@@ -105,3 +149,7 @@ a {
 .checkbutton:hover {
     background-color: cornflowerblue;
 }
+form .active button {
+    background-color: lightgreen;
+}
+

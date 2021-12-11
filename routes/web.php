@@ -19,4 +19,4 @@ Route::get('/', function () {
 Route::get('/testapps/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
 
 Route::post('/testapps/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
-
+Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);
