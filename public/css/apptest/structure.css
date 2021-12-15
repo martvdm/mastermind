@@ -1,7 +1,26 @@
 body {
     background-color: #4a5568;
+    margin: 0px;
 }
 
+.victoryscreen {
+    display: flex;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    z-index: 100;
+    flex-direction: column;
+}
+.victoryscreen h1 {
+    color: white;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 6vw;
+    font-weight: bold;
+    margin: auto;
+}
 .secretcode {
     display: flex;
     flex-wrap: nowrap;
@@ -13,21 +32,18 @@ body {
     background-size: cover;
 
 }
-.check2 {
-    background: url("/images/good.png");
-
-    background-size: cover;
+.checkbox{
+    padding: 5px;
+    background-color: darkslategray;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
-.check1 {
-    background: url("/images/contains.png");
-    background-size: cover;
-    backdrop-filter: drop-shadow(5px 5px 5px black);
-}
-.check0 {
-    background: url("/images/notgood.png");
-    background-size: cover;
-    backdrop-filter: drop-shadow(5px 5px 5px black);
-
+.checkbox p {
+color: white;
+font-size: 1.7vw;
+    font-family: Arial;
+    margin: 2px;
 }
 .rowdirector {
     display: flex;

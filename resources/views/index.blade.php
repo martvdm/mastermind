@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="testcontainer">
-<a href="/testapps/gameinput"><button style="margin: auto; max-width: 50%;">Testapps</button></a>
+<a href="/mastermind/gameinput"><button style="margin: auto; max-width: 50%;">Testapps</button></a>
 </div>
 </body>
 </html>

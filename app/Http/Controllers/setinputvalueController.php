@@ -23,7 +23,7 @@ class setinputvalueController extends Controller
         } else {
             $selectedcolor = '';
         }
-  return view('testapps.gameinput', ['selectedcolor' => $selectedcolor]);
+  return view('mastermind.gameinput', ['selectedcolor' => $selectedcolor]);
     }
 
 }
@@ -36,5 +36,5 @@ class setinputvalueController extends Controller
 ////    $selectedcolor = $selectedcolorrequest;
 ////    Session::put('selectedcolor', $selectedcolorrequest);
 ////}
-////return view('testapps.gameinput', ['selectedcolor' => $selectedcolor]);
+////return view('mastermind.gameinput', ['selectedcolor' => $selectedcolor]);
 ////}

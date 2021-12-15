@@ -11,7 +11,14 @@
 <body>
 {{-- Displays the secret gameID in blade--}}
 
-
+@if(isset($victory) && $victory === true)
+    <div class="victoryscreen">
+        <img src="https://purepng.com/public/uploads/large/new-fortnite-victory-royale-aow.png">
+        {{Session::forget('victory')}}
+        <a href="/mastermind/gameinput">
+        <button class="checkbutton" style="margin-top: 0px">Nog een keer</button>
+    </div></a>
+@endif
 @if(isset($randomgameid))
 <div class="secretcodecontainer colorselecter">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
@@ -43,17 +50,18 @@
     </div>
 @foreach($playboard as $stagerows)
         <div class="columndirector">
+            <div class="checkbox" style="padding-bottom: 0px; padding-top: 0px">
+                <p>Goed: {{$playboardcheck[$loop->index][2]}}</p>
+                <p>?: {{$playboardcheck[$loop->index][1]}}</p>
+                <p>Fout: {{$playboardcheck[$loop->index][0]}}</p>
+            </div>
 
             <form method="post" name="setcellcolor">
                 <input name="stageindex" type="hidden" value="{{$arrayindex = $loop->index}}">
                 @csrf
 
         @foreach($stagerows as $cells)
-        @if(isset($playboardcheck[$arrayindex][$loop->index]))
-                <button id="_{{$cells}}" class="check{{$playboardcheck[$arrayindex][$loop->index]}} selectfield"  name="cellindex" value="{{$loop->index}}">
-                    @else
                     <button id="_{{$cells}}" class="selectfield"  name="cellindex" value="{{$loop->index}}">
-                    @endif
         @endforeach
             </form>
         </div>

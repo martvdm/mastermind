@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/testapps/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
+Route::get('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
 
-Route::post('/testapps/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
+Route::post('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
 Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);

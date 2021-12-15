@@ -33,32 +33,53 @@ class checkstageController extends Controller
 
         foreach ($playboard[$currentstageindex] as $singlecellcheck) {
             if ($singlecellcheck != null) {
-                $filledcells = $filledcells + 1;
+                $filledcells = $filledcells + 1; //Variable checked of alle cellen in currentstage zijn gevuld
             }
         }
 
+
         if (count($playboard[$currentstageindex]) == count(array_keys($playboard[$currentstageindex]))) {
             $index = -1;
+            $randomgameidcheck = $randomgameid;
+            $checkedifcellgood = false;
             foreach ($playboard[$currentstageindex] as $singlecell) {
                 $index++;
-                if (in_array($singlecell, $randomgameid)) {
-                    $playboardcheck[$currentstageindex][$index] = 1; # staat voor bevatten
 
-                    
-                    if ($singlecell == $randomgameid[$index]) {
-                        $playboardcheck[$currentstageindex][$index] = 2; # staat voor Goed
-                        $victory = true;
-                    }
-                } else {
-                    $playboardcheck[$currentstageindex][$index] = 0; # 0 staat voor fout
+                if ($singlecell == $randomgameid[$index] && $checkedifcellgood === false) {
+                    $playboardcheck[$currentstageindex][2] = $playboardcheck[$currentstageindex][2] + 1; # staat voor Goed
+                    $randomgameidcheck[$index] = '';
+                }
+
+                if ($index === array_key_last($randomgameid)) {
+                    $checkedifcellgood = true;
+                    $index = -1;
                 }
             }
+            if ($checkedifcellgood === true) {
+                foreach ($playboard[$currentstageindex] as $singlecell) {
+                    $index++;
+                    if (is_int($randomgameidcheck[$index])) {
+                        if (in_array($singlecell, $randomgameidcheck)) {
+                            $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # staat voor bevatten
+
+                        } else {
+                            $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # 0 staat voor fout
+
+                        }
+                    }
+                }
+
+            }
+        }
+        if ($playboardcheck[$currentstageindex][2] === count($randomgameid)) {
+            $victory = true;
+        }
             if ($randomgameid == $playboard[$currentstageindex]) {
                 Session::forget('');
                 Session::flush();
-            }
 
-        } elseif (9 > $currentstageindex) {
+
+        } elseif ($currentstageindex > 10) {
             Session::forget('');
             Session::flush();
         }
@@ -66,10 +87,11 @@ class checkstageController extends Controller
             $currentstageindex = $currentstageindex + 1;
             Session::put('currentstageindex', $currentstageindex);
             Session::put('playboardcheck', $playboardcheck);
+
         }
 
-
-        return redirect('/testapps/gameinput');
+        Session::put('victory', $victory);
+        return redirect('/mastermind/gameinput');
 
 
     }

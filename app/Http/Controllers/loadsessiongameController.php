@@ -39,7 +39,7 @@ class loadsessiongameController extends Controller
             $playboardcheck = array();
             for ($i = 0; $i <= 10; $i++) { # Loop the row (Stages) 10 times in the playboard array.
                 $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
-                $playboardcheck[] = [null, null, null, null];
+                $playboardcheck[] = [null, null, null];
             }
 
             Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
@@ -74,10 +74,12 @@ class loadsessiongameController extends Controller
             Session::put('currentstageindex', $currentstageindex);
         }
 
-        return view('testapps.gameinput', ['randomgameid' => $randomgameid,
+
+        return view('mastermind.gameinput', ['randomgameid' => $randomgameid,
             'playboard' => $playboard,
             'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
-            'playboardcheck' =>  Session::get('playboardcheck')]);
+            'playboardcheck' =>  Session::get('playboardcheck'),
+            'victory' =>  Session::get('victory')]);
     }
 
 
@@ -140,7 +142,7 @@ class loadsessiongameController extends Controller
         }
 
 
-        return view('testapps.gameinput', ['randomgameid' => Session::get('randomgameid'), ## Returns the randomgameID into blade
+        return view('mastermind.gameinput', ['randomgameid' => Session::get('randomgameid'), ## Returns the randomgameID into blade
             'selectedcolorid' => $selectedcolorid, ## Returns the selectedcolorID into blade
             'playboard' => $playboard,  ## Returns the playboard into blade
             'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
