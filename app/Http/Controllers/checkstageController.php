@@ -29,6 +29,7 @@ class checkstageController extends Controller
         $playboardcheck = Session::get('playboardcheck');
         $currentstageindex = Session::get('currentstageindex'); #The current stage where the game is in
         $victory = false;
+        $lost = false;
         $filledcells = 0; #Start of check if the stage is fully filled with integers.
 
         #####
@@ -72,7 +73,7 @@ class checkstageController extends Controller
             if ($checkedifcellgood === true) { //starts fault/ingame but not right place check loop.
                 foreach ($playboard[$currentstageindex] as $singlecell) {
                     $index++;
-                    if (is_int($randomgameidcheck[$index])) { //checks if the index needs to be checked
+                    if ($randomgameidcheck[$index] > -1) { //checks if the index needs to be checked
                         if (in_array($singlecell, $randomgameidcheck)) {
                             $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # Stands for exist in game not on right place
 
@@ -94,6 +95,7 @@ class checkstageController extends Controller
 
 
         } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
+                $lost = true;
             Session::forget('');
             Session::flush();
         }
@@ -105,6 +107,8 @@ class checkstageController extends Controller
         }
 
         Session::put('victory', $victory);
+        Session::put('lost', $lost);
+        Session::put('randomgameid', $randomgameid);
         return redirect('/mastermind/gameinput');
 
 

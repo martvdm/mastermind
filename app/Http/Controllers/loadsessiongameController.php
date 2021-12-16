@@ -29,6 +29,9 @@ class loadsessiongameController extends Controller
         /////////////
 
         $playboard = Session::get('playboard');
+        // configs:
+        $maxcolorid = 4; ## Max INT of color ID's / Random game ID INT
+        $maxguesses = 10;
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
         ## Gets existing playboard array out of session
         ### !If playboard array doesn't exist:
@@ -37,7 +40,7 @@ class loadsessiongameController extends Controller
             #  ↓
             $playboard = array(); # Say playboard is an array
             $playboardcheck = array();
-            for ($i = 0; $i <= 10; $i++) { # Loop the row (Stages) 10 times in the playboard array.
+            for ($i = 0; $i < $maxguesses; $i++) { # Loop the row (Stages) 10 times in the playboard array.
                 $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
                 $playboardcheck[] = [null, null, null];
             }
@@ -53,8 +56,9 @@ class loadsessiongameController extends Controller
         ///
         /// Start random gameID generator
         /// //////////////////////////////////////////////////////////
-        $maxcolorid = 4; ## Max INT of color ID's / Random game ID INT
+
         $randomgameid = Session::get('randomgameid');
+
         ##
         if (!isset($randomgameid)) {                ## Check on existing game-session, else? make new session + random ID
             $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
@@ -79,7 +83,8 @@ class loadsessiongameController extends Controller
             'playboard' => $playboard,
             'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
             'playboardcheck' =>  Session::get('playboardcheck'),
-            'victory' =>  Session::get('victory')]);
+            'victory' =>  Session::get('victory'),
+            'lost' =>  Session::get('lost')]);
     }
 
 

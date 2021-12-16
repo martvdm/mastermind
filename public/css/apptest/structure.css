@@ -1,9 +1,10 @@
 body {
-    background-color: #4a5568;
-    margin: 0px;
+    background-color: #3a3e48;
+    margin: 0;
 }
 
 .victoryscreen {
+    animation: fadeIn 2s;
     display: flex;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.75);
@@ -13,9 +14,22 @@ body {
     z-index: 100;
     flex-direction: column;
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+}
 .victoryscreen h1 {
     color: white;
     justify-content: center;
+    font-family: Arial;
+    font-size: 6vw;
+    font-weight: bold;
+    margin: auto;
+}
+h1 {
+    color: white;
+    text-align: center;
     font-family: Arial;
     font-size: 6vw;
     font-weight: bold;
@@ -72,7 +86,16 @@ border: 1px solid black;
     background-color: red;
 }
 #_4 {
-    background-color: greenyellow;
+    background-color: limegreen;
+}
+#_5 {
+    background-color: purple;
+}
+#_6 {
+    background-color: orange;
+}
+#_7 {
+    background-color: darkcyan;
 }
 .yellowcursor * {
 
@@ -94,15 +117,16 @@ border: 1px solid black;
     display: flex;
     flex-direction: row;
     margin-right: 0;
-
+    padding-top: 7.6%;
 }
 .selectfield {
     border: 2px solid black;
     margin: auto;
     position: relative;
     display: flex;
-    padding: 50px;
-    border-radius: unset;
+    padding: 20px;
+    border-radius: 50%;
+
 
 }
 .colorselecter {
@@ -168,4 +192,3 @@ a {
 form .active button {
     background-color: lightgreen;
 }
-
