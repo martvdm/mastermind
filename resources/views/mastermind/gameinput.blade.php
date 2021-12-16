@@ -17,7 +17,7 @@
         {{Session::forget('victory')}}
         <a href="/mastermind/gameinput">
         <button class="checkbutton" style="margin-top: 0px">Nog een keer</button>
-    </div></a>
+        </a></div>
 @endif
 @if(isset($randomgameid))
 <div class="secretcodecontainer colorselecter">

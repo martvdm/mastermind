@@ -31,6 +31,12 @@ class checkstageController extends Controller
         $victory = false;
         $filledcells = 0; #Start of check if the stage is fully filled with integers.
 
+        #####
+        #      !!!Filled check!!!
+        #
+        #      !Counts every time cell is filled +1
+        /////////////
+
         foreach ($playboard[$currentstageindex] as $singlecellcheck) {
             if ($singlecellcheck != null) {
                 $filledcells = $filledcells + 1; //Variable checked of alle cellen in currentstage zijn gevuld
@@ -38,32 +44,40 @@ class checkstageController extends Controller
         }
 
 
-        if (count($playboard[$currentstageindex]) == count(array_keys($playboard[$currentstageindex]))) {
-            $index = -1;
-            $randomgameidcheck = $randomgameid;
-            $checkedifcellgood = false;
+        #####
+        #      !!!Check Algorithm!!!
+        #
+        #      ! Checks if currentstageindex is good/fault/ingame but not right place.
+        #       Algorithm first checks if good, deletes the good indexes out of the randomgameidcheck.
+        #       The good cells will not be repeated in the fault/ingame but not right place check.
+        #      ! If currentstageindex all correct. Victory = true
+        /////////////
+        if (count($playboard[$currentstageindex]) == count(array_keys($playboard[$currentstageindex]))) { //Checks currentstageindex is fully filled
+            $index = -1; //Start of de upcount of index.
+            $randomgameidcheck = $randomgameid; //Makes new randomgameid that will be modified if cells are good (Anti repeat already checked cells)
+            $checkedifcellgood = false; // checks if the current stage index is checked of good cells.
             foreach ($playboard[$currentstageindex] as $singlecell) {
-                $index++;
+                $index++; //Start upcount of index
 
-                if ($singlecell == $randomgameid[$index] && $checkedifcellgood === false) {
-                    $playboardcheck[$currentstageindex][2] = $playboardcheck[$currentstageindex][2] + 1; # staat voor Goed
-                    $randomgameidcheck[$index] = '';
+                if ($singlecell == $randomgameid[$index] && $checkedifcellgood === false) { //Checks if this index is correct & checked by randomgameid
+                    $playboardcheck[$currentstageindex][2] = $playboardcheck[$currentstageindex][2] + 1; # Stands for good (index [2])
+                    $randomgameidcheck[$index] = ''; #Deletes value of the randomgameid so will not be checked again.
                 }
 
-                if ($index === array_key_last($randomgameid)) {
+                if ($index === array_key_last($randomgameid)) { //Stops check if cell is correct loop
                     $checkedifcellgood = true;
                     $index = -1;
                 }
             }
-            if ($checkedifcellgood === true) {
+            if ($checkedifcellgood === true) { //starts fault/ingame but not right place check loop.
                 foreach ($playboard[$currentstageindex] as $singlecell) {
                     $index++;
-                    if (is_int($randomgameidcheck[$index])) {
+                    if (is_int($randomgameidcheck[$index])) { //checks if the index needs to be checked
                         if (in_array($singlecell, $randomgameidcheck)) {
-                            $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # staat voor bevatten
+                            $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # Stands for exist in game not on right place
 
                         } else {
-                            $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # 0 staat voor fout
+                            $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # Stands for doesn't exist in game
 
                         }
                     }
@@ -71,15 +85,15 @@ class checkstageController extends Controller
 
             }
         }
-        if ($playboardcheck[$currentstageindex][2] === count($randomgameid)) {
+        if ($playboardcheck[$currentstageindex][2] === count($randomgameid)) { //If all indexes are correct in currentstageindex, victory = true
             $victory = true;
         }
-            if ($randomgameid == $playboard[$currentstageindex]) {
+            if ($victory === true) { //If victory is true, reset session.
                 Session::forget('');
                 Session::flush();
 
 
-        } elseif ($currentstageindex > 10) {
+        } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
             Session::forget('');
             Session::flush();
         }
