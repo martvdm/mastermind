@@ -1,19 +1,14 @@
-<!doctype html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mastermind | Betá</title>
-
+@extends('layouts.app')
+    @section('title') Mastermind @endsection
+@section('extracss')
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
-    <!-- tsParticles main script -->
+    @endsection
+    @section('extrascript')
+        <!-- tsParticles main script -->
     <script src="https://www.wpromotions.eu/confetti.min.js"></script>
+    @endsection
 
-
-</head>
-<body>
+@section('assets')
 {{-- Displays the secret gameID in blade--}}
 
 @if(isset($victory) && $victory === true)
@@ -112,5 +107,4 @@
 </div>
 </div>
 <a href="/check"> <button class="checkbutton" type="submit"> Check </button></a>
-</body>
-</html>
+@endsection
