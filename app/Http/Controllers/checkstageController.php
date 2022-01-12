@@ -75,9 +75,10 @@ class checkstageController extends Controller
                     $index++;
                     if ($randomgameidcheck[$index] > -1) { //checks if the index needs to be checked
                         if (in_array($singlecell, $randomgameidcheck)) {
+                            $randomgameidcheck[$index] = '';
                             $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # Stands for exist in game not on right place
 
-                        } else {
+                        } elseif($randomgameidcheck[$index] > -1) {
                             $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # Stands for doesn't exist in game
 
                         }

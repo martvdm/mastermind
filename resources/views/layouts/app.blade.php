@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{App::getLocale();}}">
+<html lang="{{ Config::get('app.locale') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,6 +10,7 @@
     @yield('extrascript')
 </head>
 <body>
+
 @yield('assets')
 </body>
 </html>

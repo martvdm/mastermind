@@ -43,6 +43,7 @@ class loadsessiongameController extends Controller
             for ($i = 0; $i < $maxguesses; $i++) { # Loop the row (Stages) 10 times in the playboard array.
                 $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
                 $playboardcheck[] = [null, null, null];
+
             }
 
             Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
