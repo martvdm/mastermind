@@ -44,7 +44,7 @@
             <button class="checkbutton" style="margin-top: 0px">Nog een keer</button>
         </a></div>
 @endif
-<h1>Mastermind</h1>
+<h1>{{__('mastermind/content.mastermind')}}</h1>
 {{--@if(isset($randomgameid))--}}
 {{--<div class="secretcodecontainer colorselecter">--}}
 {{--    {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}--}}
