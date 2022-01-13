@@ -37,17 +37,7 @@ class loadsessiongameController extends Controller
         ### !If playboard array doesn't exist:
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
         if (!isset($playboard)) { # If playboard doesn't exist:
-            #  ↓
-            $playboard = array(); # Say playboard is an array
-            $playboardcheck = array();
-            for ($i = 0; $i < $maxguesses; $i++) { # Loop the row (Stages) 10 times in the playboard array.
-                $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
-                $playboardcheck[] = [null, null, null];
-
-            }
-
-            Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
-            Session::put('playboardcheck', $playboardcheck); # Put the entire (empty)playboard checks in the session.
+            $playboard = $this->createNewPlayboard($maxguesses);
         }
 
 
@@ -62,10 +52,7 @@ class loadsessiongameController extends Controller
 
         ##
         if (!isset($randomgameid)) {                ## Check on existing game-session, else? make new session + random ID
-            $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
-
-
-            Session::put('randomgameid', $randomgameid); ## Puts Random ID in game Session
+            $randomgameid = $this->createRandomgameid($maxcolorid);
 
         };
         //////////////////////////////////////////////////////////////
@@ -154,5 +141,39 @@ class loadsessiongameController extends Controller
             'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
             'playboardcheck' =>  Session::get('playboardcheck')]);
 
+    }
+
+    /**
+     * @param int $maxguesses
+     * @param array $playboard
+     * @return array
+     */
+    protected function createNewPlayboard(int $maxguesses): array
+    {
+#  ↓
+        $playboard = array(); # Say playboard is an array
+        $playboardcheck = array();
+        for ($i = 0; $i < $maxguesses; $i++) { # Loop the row (Stages) 10 times in the playboard array.
+            $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
+            $playboardcheck[] = [null, null, null];
+
+        }
+
+        Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
+        Session::put('playboardcheck', $playboardcheck);
+        return $playboard; # Put the entire (empty)playboard checks in the session.
+    }
+
+    /**
+     * @param int $maxcolorid
+     * @return array
+     */
+    protected function createRandomgameid(int $maxcolorid): array
+    {
+        $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
+
+
+        Session::put('randomgameid', $randomgameid);
+        return $randomgameid; ## Puts Random ID in game Session
     }
 }

@@ -6,3 +6,4 @@ function DivToggle(id) {
         id.style.visibility = "hidden";
     }
 }
+
