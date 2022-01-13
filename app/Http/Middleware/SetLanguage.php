@@ -14,10 +14,10 @@ class SetLanguage
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
-        $languagestandard = $request->language;
-        $langoptions = session()->get('lang');
+   public function handle(Request $request, Closure $next)
+{
+    $languagestandard = $request->language;
+    $langoptions = session()->get('lang');
 
         if(isset($langoptions)) {
             $langsetted = $langoptions;
