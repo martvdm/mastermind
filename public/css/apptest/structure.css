@@ -379,3 +379,9 @@ form .active button {
     display: flex;
     justify-content: center;
 }
+#loader {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #0049e9;
+}

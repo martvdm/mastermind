@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{session()->get('lang')}}">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,22 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
-    <script type="text/javascript" src="/js/DivToggle.js"></script>
-    <script type="text/javascript" src="/js/SearchBar.js"></script>
-    <script type="text/javascript" src="/js/SettingMenu.js"></script>
+
 </head>
 <body>
-<div class="testcontainer">
-    <a href="/mastermind/gameinput">
-        <button class="bluebutton" style=" background: #e2e8f0; color: black">Testapps</button>
-    </a>
-    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"
-            onclick="DivToggle('leaderboard')">Leaderboard
-    </button>
-    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"
-            onclick="DivToggle('options')">Instellingen
-    </button>
-</div>
+@extends('layouts.navigation')
+{{--<div class="testcontainer">--}}
+{{--    <a href="/mastermind/gameinput">--}}
+{{--        <button class="bluebutton" style=" background: #e2e8f0; color: black">Testapps</button>--}}
+{{--    </a>--}}
+{{--    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"--}}
+{{--            onclick="DivToggle('leaderboard')">Leaderboard--}}
+{{--    </button>--}}
+{{--    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"--}}
+{{--            onclick="DivToggle('options')">Instellingen--}}
+{{--    </button>--}}
+{{--</div>--}}
 <div class="container">
         <div class="popup" id="leaderboard" style="flex-direction: column">
             <div class="top">
