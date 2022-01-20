@@ -1,0 +1,35 @@
+/*nav {*/
+/*    background-color: var(--contrast-color);*/
+
+/*}*/
+/*nav * {*/
+/*    color: var(--color-outline);*/
+/*}*/
+/*.header a {*/
+/*    flex-direction: column;*/
+/*    font-size: 2.2vw;*/
+/*    line-height: 0.9vw;*/
+/*    display: flex;*/
+/*    margin: auto;*/
+/*    color: var(--color-outline);*/
+/*}*/
+/*nav .column a {*/
+/*    color: var(--color-outline);*/
+/*}*/
+/*nav img {*/
+/*    border: 2px black solid;*/
+/*}*/
+/*.header a span  {*/
+/*    display: flex;*/
+/*    margin: 0.5vw;*/
+/*    color: var(--color-outline);*/
+/*}*/
+h1 {
+    font-size: 20vw;
+    color: var(--contrast-color);
+    margin: auto;
+    display: flex;
+}
+body {
+    height: 100vh;
+}

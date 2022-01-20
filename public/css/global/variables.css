@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    flex-wrap: unset;
+}
+:root {
+    --primary-color: #0049e9;
+    --secondary-color: #00dd83;
+    --color-outline: #444444;
+    --color-content: #05164c;
+    --contrast-color: #fff;
+    --standard-fontfamily: SharpSans,Helvetica,Arial,sans-serif;
+}
+
+[data-theme="dark"] {
+    --primary-color: #0049e9;
+    --secondary-color: #00dd83;
+    --color-outline: #ffffff;
+    --color-content: #05164c;
+    --contrast-color: #3d3d3d;
+}

@@ -1,28 +1,32 @@
+
 nav {
     top: 0;
-    width: 80%;
+    width: 100vw;
+    height: min-content;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: auto;
-    position: absolute;
-    padding: 1vw;
-    padding-inline: 10%;
+    margin: 0;
+    z-index: 50;
+    position: fixed;
+    padding-top: 1vw;
+}
+a {
+    text-decoration: unset;
+    color: currentColor;
+    font-family: var(--standard-fontfamily);
 }
 nav a {
     display: flex;
     color: white;
-    font-size: 1.3vw;
+    font-size: 0.0vw;
     cursor: pointer;
     user-select: none;
+    transition: font-size linear 0.1s;
 }
-.dropdown {
-    border-radius: 10px;
-    padding: 1vw;
-    padding-inline: unset;
-    display: flex;
-    background-color: white;
-    flex-direction: column;
+nav a:hover,a:focus {
+    font-size: 1.5vw;
+
 }
 .dropdown a {
     justify-content: center;
@@ -31,12 +35,62 @@ nav a {
     position: relative;
     padding: 0.2vw;
     padding-inline: 1vw;
-    color: #0049e9;
+    color: var(--secondary-color);
 
 }
+.header {
+    width: auto;
+    word-spacing: 1vw;
+    height: 20%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+    font-family: var(--standard-fontfamily);
+    color: var(--contrast-color);
+    font-weight: bold;
+    transition: all ease-in-out 0.5s;
+}
+.header:hover {
+    transform: rotate(2deg);
+    transition: all ease-in-out 0.5s;
+}
+.header img {
+    display: flex;
+    height: 80%;
+    width: auto;
+}
+.header a {
+    flex-direction: row;
+    font-size: 0px;
+    line-height: 0.9vw;
+    display: flex;
+    justify-content: center;
+    z-index: 200;
+}
+
+.header a span  {
+    display: flex;
+    margin: 0.5vw;
+
+
+}
+.dropdown {
+    border-radius: 10px;
+    padding: 1vw;
+    margin-right: 2vw;
+    padding-inline: unset;
+    display: flex;
+    background-color: var(--contrast-color);
+    flex-direction: column;
+}
+
 .dropdownimg {
-    width: 20%;
-    height: auto;
+    width: 3.3vw;
+    object-fit: cover;
+    border-radius: 50%;
+    border: white 0.01vw solid;
+    height: 3.3vw;
+
     margin-right: 5%;
 
 
@@ -46,5 +100,36 @@ nav a {
     background-color: gray;
     cursor: pointer;
 }
+.sidebar {
+    display: flex;
+    z-index: 0;
+    position: relative;
+    width: 12%;
+    border-right: #cbd5e0 2px solid;
+    height: 100%;
+    flex-direction: column;
+    background-color: var(--contrast-color);
+}
+.sidebar a {
+    display: flex;
+    position: relative;
+    z-index: 1000;
+    color: var(--color-outline);
+    font-size: 1.1vw;
+    padding: 0.7vw;
+    text-underline: #2d3748;
+}
+.sidebar a:focus {
+    background: var(--primary-color);
+    color: var(--color-outline);
+}
+.contentbox {
+    display: flex;
+    width: 80%;
+    height: auto;
+    position: relative;
 
+    right: 0;
+    top: 0;
+}
 

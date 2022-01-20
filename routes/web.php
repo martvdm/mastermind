@@ -24,10 +24,14 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::post('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
     Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);
+    // admin
+    Route::get('/admin/dashboard' , [\App\Http\Controllers\AdminController::class, 'Dashboard']);
+    Route::get('/profile',function () {
+        return view('users.profile');
+    });
 });
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

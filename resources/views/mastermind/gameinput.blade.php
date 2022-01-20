@@ -1,4 +1,4 @@
-@extends('layouts.mastermind')
+@extends('layouts.global')
 
     @section('title') Mastermind @endsection
 @section('extracss')
@@ -10,6 +10,7 @@
     @endsection
 
 @section('assets')
+    <x-navigation></x-navigation>
 {{-- Displays the secret gameID in blade--}}
 
 @if(isset($victory) && $victory === true)
