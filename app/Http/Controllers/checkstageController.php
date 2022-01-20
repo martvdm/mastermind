@@ -91,14 +91,11 @@ class checkstageController extends Controller
             $victory = true;
         }
             if ($victory === true) { //If victory is true, reset session.
-                Session::forget('');
-                Session::flush();
+                $this->resetgamesession();
 
-
-        } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
+            } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
                 $lost = true;
-            Session::forget('');
-            Session::flush();
+                $this->resetgamesession();
         }
         if (Session::has('randomgameid') && $filledcells == 4) {
             $currentstageindex = $currentstageindex + 1;
@@ -113,6 +110,14 @@ class checkstageController extends Controller
         return redirect('/mastermind/gameinput');
 
 
+    }
+
+    protected function resetgamesession(): void
+    {
+        Session::put('randomgameid', null); #The random gameID and asnwer secret code
+        Session::put('playboard', null); #In this array the hole playboard input will be stored
+        Session::put('playboardcheck', null);
+        Session::get('currentstageindex', null); #The current stage where the game is in
     }
 
 }

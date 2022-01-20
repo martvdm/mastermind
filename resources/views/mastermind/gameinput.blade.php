@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.mastermind')
+
     @section('title') Mastermind @endsection
 @section('extracss')
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
@@ -45,7 +46,7 @@
         </a></div>
 @endif
 <h1>{{__('mastermind/content.mastermind')}}</h1>
-@if(isset($randomgameid))
+@if(isset($randomgameid) && Auth::user()->power == 'admin')
 <div class="secretcodecontainer colorselecter">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
     <label>Secret GameID:</label>

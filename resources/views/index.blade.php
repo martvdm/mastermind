@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
+    <script src="/js/DivToggle.js"></script>
 
 </head>
 <body>
-@extends('layouts.navigation')
+<x-navigation></x-navigation>
 {{--<div class="testcontainer">--}}
 {{--    <a href="/mastermind/gameinput">--}}
 {{--        <button class="bluebutton" style=" background: #e2e8f0; color: black">Testapps</button>--}}

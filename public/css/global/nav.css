@@ -1,0 +1,50 @@
+nav {
+    top: 0;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: auto;
+    position: absolute;
+    padding: 1vw;
+    padding-inline: 10%;
+}
+nav a {
+    display: flex;
+    color: white;
+    font-size: 1.3vw;
+    cursor: pointer;
+    user-select: none;
+}
+.dropdown {
+    border-radius: 10px;
+    padding: 1vw;
+    padding-inline: unset;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+}
+.dropdown a {
+    justify-content: center;
+    font-size: 1.3vw;
+    z-index: 100;
+    position: relative;
+    padding: 0.2vw;
+    padding-inline: 1vw;
+    color: #0049e9;
+
+}
+.dropdownimg {
+    width: 20%;
+    height: auto;
+    margin-right: 5%;
+
+
+    background-size: cover;
+}
+.dropdown a:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+
