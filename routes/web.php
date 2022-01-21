@@ -26,8 +26,14 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);
     // admin
     Route::get('/admin/dashboard' , [\App\Http\Controllers\AdminController::class, 'Dashboard']);
-    Route::get('/profile',function () {
+    Route::get('/account/dashboard',function () {
         return view('users.profile');
+    });
+    Route::get('/account/settings',function () {
+        return view('users.settings');
+    });
+    Route::get('/account/preferences',function () {
+        return view('users.preferences');
     });
 });
 

@@ -24,6 +24,9 @@
 /*    margin: 0.5vw;*/
 /*    color: var(--color-outline);*/
 /*}*/
+* {
+    margin: 0;
+}
 h1 {
     font-size: 20vw;
     color: var(--contrast-color);
@@ -33,3 +36,71 @@ h1 {
 body {
     height: 100vh;
 }
+.contentbox {
+    display: flex;
+    width: 80%;
+    padding: 3%;
+    height: auto;
+    position: absolute;
+    flex-direction: column;
+    float: left;
+    z-index: 10;
+    top: 150;
+    right: 0;
+    background-color: var(--contrast-color);
+}
+.contentbox h1 {
+    display: inline;
+    font-size: 4vw;
+    font-family: var(--standard-fontfamily);
+    color: var(--color-outline);
+
+
+}
+.contentbox .header {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2vw;
+    border-bottom: 1px lightgray solid;
+}
+.card {
+    flex-direction: row;
+    padding: 1%;
+    display: flex;
+    width: max-content;
+    height: auto;
+    border: 1px lightgrey solid;
+    font-family: var(--standard-fontfamily);
+}
+.card img{
+    background-color: #cbd5e0;
+    width: 4vw;
+    object-fit: cover;
+    border-radius: 50%;
+    border: white 0.11vw solid;
+    height: 4vw;
+    margin-right: 2%;
+    background-size: cover;
+}
+.profilecardtext {
+    padding-left: 2%;
+    flex-direction: column;
+    border-left: 1px lightgrey solid;
+}
+.card h3 {
+    flex-wrap: nowrap;
+    display: flex;
+    color: var(--color-outline);
+    font-size: 2vw;
+    font-weight: bold;
+}
+.card p {
+    display: flex;
+    color: #b9bdc7;
+    font-size: 1vw;
+}
+.hidden {
+    display: none;
+}
+
