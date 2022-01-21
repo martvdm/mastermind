@@ -14,6 +14,7 @@
                 <h2>Welkom, {{Auth::user()->name}}</h2><x-role-shower></x-role-shower>
                 <p>{{Auth::user()->email}}</p>
             </div>
+{{--            <img src="/images/edit.png">--}}
         </div>
         </a>
     </div>

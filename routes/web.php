@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/account/preferences',function () {
         return view('users.preferences');
     });
+
 });
 
 

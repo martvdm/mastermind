@@ -15,7 +15,8 @@
             width: 87vw;
             right: 0;
             position: absolute;
-        }</style>
+        }
+        </style>
 @endif
 
 <nav>
