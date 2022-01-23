@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/global/nav.css">
 <script src="/js/DivToggle.js"></script>
 <script src="/js/SettingMenu.js"></script>
+<script src="/js/Nav.js"></script>
 
 @if (array_key_exists('sidebar', View::getSections()))
     <style> .header a {
@@ -69,7 +70,11 @@
         <a href="/account/dashboard">{{__('profile')}}</a>
         <a href="/account/settings">{{__('settings')}}</a>
         <a href="/account/preferences">{{__('preferences')}}</a>
-        @if(Auth::user()->power == 'admin')<a style="color: red" href="/admin/dashboard">{{__('Admin Panel')}}</a> @endif
+        @if(Auth::user()->roles->id == 1)
+            <a style="margin-top: 10%; color: red; justify-content: center; padding-bottom: 7%;margin-bottom: 2%; border-bottom: 1px lightgrey solid;" >Admin</a>
+            <a style="color: red" href="/admin/users">{{__('User Management')}}</a>
+            <a style="color: red" href="/admin/roles">{{__('Role Management')}}</a>@endif
+
         <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{__('logout')}}</a>
 
     </div>

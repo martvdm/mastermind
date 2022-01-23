@@ -64,11 +64,29 @@ body {
     margin-bottom: 2vw;
     border-bottom: 1px lightgray solid;
 }
+.actionbutton {
+    background-color: var(--secondary-color); /* Green */
+    border: none;
+    color: white;
+    border-radius: 1vw;
+    margin-bottom: 2%;
+    padding: 0.5vw 1.0vw;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 1.0vw;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto;
+}
+.actionbutton:hover {
+    filter: brightness(110%);
+}
 .card {
     flex-direction: row;
     padding: 1%;
-    display: flex;
-    width: max-content;
+    display: inline-flex;
+    width: 100%;
     height: auto;
     border: 1px lightgrey solid;
     font-family: var(--standard-fontfamily);

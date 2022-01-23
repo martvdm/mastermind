@@ -1,6 +1,7 @@
 * {
     margin: 0;
     flex-wrap: unset;
+    font-family: var(--standard-fontfamily);
 }
 :root {
     --primary-color: #0049e9;

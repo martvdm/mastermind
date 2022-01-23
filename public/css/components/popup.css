@@ -4,11 +4,10 @@
     width: 75vw;
     height: 30vw;
     position: fixed;
-    align-self: center;
     padding: 1vw;
-    visibility: hidden;
     border-radius: 25px;
     background: white;
+    z-index: 1000;
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
 }
 
@@ -69,7 +68,9 @@
 .popup input {
     border: unset;
     display: flex;
-    height: auto;
+    height: max-content;
+    border-left: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;;
     padding: 2px;
     margin-inline: 20%;
     font-size: 1.5vw;

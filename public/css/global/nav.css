@@ -142,15 +142,16 @@ nav a {
     background: lightgray;
     color: var(--color-outline);
 }
- .admin  {
-
+ a .role {
+     margin-inline: auto;
+ }
+ .role  {
     display: flex;
     /*margin: auto;*/
     font-weight: bold;
-    background: red;
     color: white;
     width: max-content;
     height: min-content;
-    padding: 0.5vw;
+    padding: 0.4vw;
     border-radius: 5%;
 }

@@ -1,6 +1,8 @@
 @extends('layouts.global')
 @section('extracss')
-    <link rel="stylesheet" type="text/css" href="/css/users/profile.css">@endsection
+    <link rel="stylesheet" type="text/css" href="/css/users/profile.css">
+    <link rel="stylesheet" type="text/css" href="/css/components/popup.css">
+@endsection
 @section('title') @yield('titlebox') @endsection
 @section('assets')
     @extends('components.navigation')

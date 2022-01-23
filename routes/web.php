@@ -1,7 +1,8 @@
 <?php
-
+use App\Console\Kernel;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
     Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);
     // admin
-    Route::get('/admin/dashboard' , [\App\Http\Controllers\AdminController::class, 'Dashboard']);
     Route::get('/account/dashboard',function () {
         return view('users.profile');
     });
@@ -36,7 +36,17 @@ Route::group(['middleware' => 'auth'], function (){
         return view('users.preferences');
     });
 
-});
+
+    //admin routes
+    Route::group([
+        'middleware' => 'admin',
+        'prefix' => 'admin',
+    ], function() {
+        Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
+        Route::get('/roles', [\App\Http\Controllers\AdminController::class, 'roles']);
+        });
+    Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
+    });
 
 
 

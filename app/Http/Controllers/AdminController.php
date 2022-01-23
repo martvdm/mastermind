@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -8,14 +9,12 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
-    public function Dashboard() {
-        if (Auth::user()->power == 'admin') {
-            return view('admin.dashboard', ['users' => User::all()]);
-        } else {
+    public function Users() {
 
+            return view('admin.users', ['users' => User::all()]);
+    }
+    public function Roles() {
+        return view('admin.roles', ['roles' => Role::all()]);
 
-
-            return redirect('/');
-        }
     }
 }
