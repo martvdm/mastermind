@@ -19,7 +19,7 @@
             <h4 style="margin-left: unset;">{{ $user->name }}</h4>
             <h4>{{ $user->email }}</h4>
             @isset($user->role_id)
-                <h4 class="role" style="background: {{ $user->roles->hexcolor }}">{{ $user->roles->name }}</h4>
+                <h4 class="role" style="color: {{ $user->roles->hexcolor }}">{{ $user->roles->name }}</h4>
             @else
             <h4>{{ $user->role_id }}</h4>
             @endisset

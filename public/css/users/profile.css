@@ -91,6 +91,9 @@ body {
     border: 1px lightgrey solid;
     font-family: var(--standard-fontfamily);
 }
+.card h4 {
+    width: 100%;
+}
 .card img{
     background-color: #cbd5e0;
     width: 4vw;

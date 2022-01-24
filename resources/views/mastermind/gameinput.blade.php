@@ -47,12 +47,13 @@
         </a></div>
 @endif
 <h1>{{__('mastermind/content.mastermind')}}</h1>
-@if(isset($randomgameid) && Auth::user()->power == 'admin')
+@if(isset($randomgameid) && Auth::user()->roles->id == 2)
 <div class="secretcodecontainer colorselecter">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}
     <label>Secret GameID:</label>
 </div>
 @endif
+
 
 @if(!isset($selectedcolorid))
     <div>

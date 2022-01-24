@@ -15,7 +15,7 @@
 {{--    </button>--}}
 {{--</div>--}}
 <div class="container">
-        <div class="popup" id="leaderboard" style="flex-direction: column">
+        <div class="popup" id="leaderboard" style="visibility: hidden;flex-direction: column">
             <div class="top">
                 <div class="close">🔍</div>
                 <h1>Leaderboard</h1>
@@ -40,7 +40,7 @@
 
         </div>
 
-    <div class="popup" id="options">
+    <div class="popup" style="visibility: hidden;" id="options">
         <div class="close" onclick="DivToggle('options')"> x</div>
         <div class="sidebar">
             <div class="column"><a href="#" onclick="Showdiv('account')">Account</a>

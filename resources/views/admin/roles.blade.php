@@ -18,7 +18,7 @@
     @foreach ($roles as $role)
         <div class="card" style="justify-content: space-between; width: 100%">
             <h4 style="margin-left: unset;">{{ $role->id }}</h4>
-            <h4 class="role" style="background: {{ $role->hexcolor }}; margin-left: unset;">{{ $role->name }}</h4>
+            <h4 class="role" style="color: {{ $role->hexcolor }}; margin-left: unset;">{{ $role->name }}</h4>
             <h4>{{ $role->priority }}</h4>
             <h4>{{ $role->permissions }}</h4>
 

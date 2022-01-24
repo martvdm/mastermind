@@ -70,7 +70,7 @@
         <a href="/account/dashboard">{{__('profile')}}</a>
         <a href="/account/settings">{{__('settings')}}</a>
         <a href="/account/preferences">{{__('preferences')}}</a>
-        @if(Auth::user()->roles->id == 1)
+        @if(isset(Auth::user()->roles->id) && Auth::user()->roles->id == 2)
             <a style="margin-top: 10%; color: red; justify-content: center; padding-bottom: 7%;margin-bottom: 2%; border-bottom: 1px lightgrey solid;" >Admin</a>
             <a style="color: red" href="/admin/users">{{__('User Management')}}</a>
             <a style="color: red" href="/admin/roles">{{__('Role Management')}}</a>@endif
