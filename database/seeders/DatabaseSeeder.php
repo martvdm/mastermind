@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Permission;
+use App\Models\PermissionRole;
 use App\Models\Role;
 use App\Models\Role_Permission;
 use App\Models\User;
@@ -21,6 +22,5 @@ class DatabaseSeeder extends Seeder
         Permission::create(array('permission' => 'Administrator'));
         Role::create(array('priority' => 1, 'name' => 'Guest', 'hexcolor' => 'lightgrey'));
         Role::create(array('priority' => 99, 'name' => 'Admin', 'hexcolor' => 'Red'));
-        Role_Permission::create(array('role_id' => 2, 'permission_id' => 1));
     }
 }

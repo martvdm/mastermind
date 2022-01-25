@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
     });
 
-
+Route::get('/test', [\App\Http\Controllers\ModelViewer::class, 'users']);
 
 Auth::routes();
 
