@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGamedataTable extends Migration
+class CreateUserExperiencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGamedataTable extends Migration
      */
     public function up()
     {
-        Schema::create('gamedata', function (Blueprint $table) {
+        Schema::create('user_experiences', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateGamedataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gamedata');
+        Schema::dropIfExists('user_experiences');
     }
 }
