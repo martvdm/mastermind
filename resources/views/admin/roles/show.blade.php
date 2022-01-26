@@ -6,9 +6,16 @@
     <button class="actionbutton" onclick="DivToggle('createform')"> {{__('Create Role')}}</button>
     <div class="popup" style="visibility: hidden;" id="createform">
 
-        <div class="close" onclick="DivToggle('createform')"> x</div>
-        <input type="text">
-    </div>
+<div class="top">
+        <h1>{{__('Create Role')}}</h1>
+        <div class="close" onclick="DivToggle('createform')"> x</div></div>
+        <div class="column">
+        <label>test</label>
+            <input type="text">
+        </div>
+        </div>
+
+
     <div class="card" style="justify-content: space-between; width: 100%">
         <h4>ID</h4>
         <h4>Role</h4>

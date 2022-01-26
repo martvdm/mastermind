@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use App\Models\User;
-class UserController extends Controller
+use App\Http\Controllers\Controller;
+
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
 
-
-        return view('admin.users')->with(['users' => $users]);
+        return view('admin.roles.show', ['roles' => Role::all()]);
     }
 
     /**
@@ -25,9 +23,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
+        return view('admin.roles.create', ['roles' => Role::all()]);
     }
 
     /**

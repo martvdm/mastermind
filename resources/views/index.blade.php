@@ -47,7 +47,7 @@
                 <a href="#" onclick="Showdiv('taal')">Taal</a>
                 <a  href="#" onclick="Showdiv('thema')">Thema</a></div>
         </div>
-        <div id="settingscontent">
+        <div id="popupcontent">
             <div id="account" style="display: flex"><h1> Account Settings</h1>
                 <div class="bluebutton" style="margin: unset; width: max-content">Inloggen</div>
                </div>

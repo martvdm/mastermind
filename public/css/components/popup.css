@@ -2,7 +2,7 @@
     display: flex;
     margin: auto;
     width: 75vw;
-    height: 30vw;
+    height: auto;
     position: fixed;
     padding: 1vw;
     border-radius: 25px;
@@ -15,7 +15,7 @@
 .popup h1 {
 
     display: flex;
-
+    margin: unset;
     font-family: SharpSans,Helvetica,Arial,sans-serif;
     font-size: 4vw;
     color: #05164c;
@@ -46,6 +46,7 @@
 .popup .top {
     margin-top: 2%;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     flex-direction: row;
 }
@@ -69,9 +70,9 @@
     border: unset;
     display: flex;
     height: max-content;
-    border-left: 1px solid lightgrey;
-    border-bottom: 1px solid lightgrey;;
+    border: 1px solid lightgrey;
     padding: 2px;
+    width: auto;
     margin-inline: 20%;
     font-size: 1.5vw;
     margin-top: 5%;
@@ -106,7 +107,7 @@
     background: #0049e9;
     color: white;
 }
-#settingscontent {
+#popupcontent {
     flex-direction: row;
     display: flex;
     width: auto;
@@ -115,22 +116,22 @@
     padding-inline: 4vw;
 
 }
-#settingscontent div {
+#popupcontent div {
     flex-direction: column;
     justify-content: unset;
 }
-#settingscontent h1 {
+#popupcontent h1 {
     color: #05164c;
     font-size: 2vw;
     padding: 1vw;
 
 }
-#settingscontent label {
+#popupcontent label {
     display: flex;
     justify-content: left;
     margin: 0.4vw;
 }
-#settingscontent select {
+#popupcontent select {
     display: flex;
     width: 30%;
     padding: 0.5vw;
@@ -138,10 +139,10 @@
     border: 1px gray;
     border-radius: 2px;
 }
-#settingscontent option {
+#popupcontent option {
     font-size: 1.2vw;
 }
-#settingscontent .themeexample {
+#popupcontent .themeexample {
     width: 25%;
     height: 20%;
     border-radius: 2vw;
@@ -152,15 +153,15 @@
     justify-content: center;
     border: 1px solid gray;
 }
-#settingscontent .dark {
+#popupcontent .dark {
     background: #2d3748;
     color: white;
 }
-#settingscontent .light {
+#popupcontent .light {
     background: #ffffff;
     color: #000000;
 }
-#settingscontent .table {
+#popupcontent .table {
     flex-direction: row;
     display: flex;
     justify-content: center;

@@ -42,10 +42,12 @@ Route::group(['middleware' => 'auth'], function (){
         'middleware' => 'admin',
         'prefix' => 'admin',
     ], function() {
-        Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
-        Route::get('/roles', [\App\Http\Controllers\AdminController::class, 'roles']);
+//        Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
+//        Route::get('/roles', [\App\Http\Controllers\AdminController::class, 'roles']);
+        Route::resource('/roles', \Admin\RoleController::class);
+        Route::resource('/users', \Admin\UserController::class);
         });
-    Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
+
     });
 
 Route::get('/test', [\App\Http\Controllers\ModelViewer::class, 'users']);

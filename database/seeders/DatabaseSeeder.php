@@ -19,8 +19,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create(array('name' => 'Mart', 'password' => '$2y$10$EO5yNCR3WgSfNPJ1OiOtGeRxDEOdRNL0yWIqkMQOfcJwhTNk23Lha', 'role_id' => 2, 'email' => 'belikemart@gmail.com'));
-        Permission::create(array('permission' => 'Administrator'));
+        Permission::create(array('permission' => 'administrator'));
+        Permission::create(array('permission' => 'edit users'));
+        Permission::create(array('permission' => 'edit roles'));
+        Permission::create(array('permission' => 'manage users'));
+        Permission::create(array('permission' => 'manage roles'));
+        Permission::create(array('permission' => 'game admin'));
+
         Role::create(array('priority' => 1, 'name' => 'Guest', 'hexcolor' => 'lightgrey'));
         Role::create(array('priority' => 99, 'name' => 'Admin', 'hexcolor' => 'Red'));
+
     }
 }
