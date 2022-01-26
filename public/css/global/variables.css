@@ -19,3 +19,12 @@
     --color-content: #05164c;
     --contrast-color: #3d3d3d;
 }
+.row {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}

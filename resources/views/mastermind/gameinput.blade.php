@@ -19,6 +19,8 @@
     <div class="victoryscreen">
         <script>confetti.start()</script>
         <h1> Je hebt de code geraden! </h1>
+        <h1 style="font-size: 3vw">Score: 1424 -> Level 2</h1>
+
             <div class="rowdirector">
                 <h1 style="font-size: 4vw">De code was: </h1>
             @foreach($randomgameid as $singlegameid)
@@ -27,26 +29,35 @@
             </div>
         {{Session::forget('victory')}}
         {{Session::forget('randomgameid')}}
+        <div class="row">
         <a href="/mastermind/gameinput">
-        <button class="checkbutton" style="margin-top: 0px">Nog een keer</button>
-        </a></div>
+        <button class="checkbutton" style="margin-top: 0px">Reset</button>
+
+        </a>
+
+        <a href="/">
+            <button class="checkbutton" style="margin-top: 0px">Home</button>
+        </a>
+    </div></div>
 @endif
 @if(isset($lost) && $lost === true)
     <div class="victoryscreen">
         <h1> Je hebt de code niet geraden! </h1>
         {{Session::forget('lost')}}
         {{Session::forget('randomgameid')}}
+        <h1 style="font-size: 3vw">Score: 1424</h1>
         <div class="rowdirector">
             <h1 style="font-size: 4vw">De code was: </h1>
             @foreach($randomgameid as $singlegameid)
                 <div class="selectfield" style="padding:2vw; margin: auto; margin-inline: 2px" id="_{{$singlegameid}}"></div>
             @endforeach
         </div>
+
         <a href="/mastermind/gameinput">
             <button class="checkbutton" style="margin-top: 0px">Nog een keer</button>
         </a></div>
 @endif
-<h1>{{__('mastermind/content.mastermind')}}</h1>
+
 @if(isset($randomgameid) && Auth::user()->roles->id == 2)
 <div class="secretcodecontainer colorselecter">
     {{$randomgameid[0] . $randomgameid[1] . $randomgameid[2] . $randomgameid[3]}}

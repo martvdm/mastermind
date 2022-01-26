@@ -6,6 +6,7 @@ use App\Models\Permission;
 use App\Models\PermissionRole;
 use App\Models\Role;
 use App\Models\Role_Permission;
+use App\Models\level;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -28,6 +29,9 @@ class DatabaseSeeder extends Seeder
 
         Role::create(array('priority' => 1, 'name' => 'Guest', 'hexcolor' => 'lightgrey'));
         Role::create(array('priority' => 99, 'name' => 'Admin', 'hexcolor' => 'Red'));
-
+        for ($i = 1; $i < 51; $i++) {
+            $timestamps = false;
+            level::create(array('level' => $i, 'experience' => ($i*45) * $i ));
+        }
     }
 }

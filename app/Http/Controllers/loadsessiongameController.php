@@ -62,6 +62,10 @@ class loadsessiongameController extends Controller
         /// Current stage code
         /// //////////////////////////////////////////////////////////
         $currentstageindex = Session::get('currentstageindex');
+        $victory = Session::get('victory');
+        if ($victory == true) {
+            Session::forget('currentstageindex');
+        }
         if (!isset($currentstageindex)) {
             $currentstageindex = 0;
             Session::put('currentstageindex', $currentstageindex);

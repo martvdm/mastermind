@@ -11,7 +11,7 @@ use Illuminate\Routing\Controller;
 class ModelViewer extends Controller
 {
     public function Users() {
-    $users = Auth::user()->roles->permission;
+    $users = Auth::user()->experience;
     dd($users);
 }
 }
