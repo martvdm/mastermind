@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\Role_Permission;
 use App\Models\level;
 use App\Models\User;
+use App\Models\user_experience;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,12 +27,15 @@ class DatabaseSeeder extends Seeder
         Permission::create(array('permission' => 'manage users'));
         Permission::create(array('permission' => 'manage roles'));
         Permission::create(array('permission' => 'game admin'));
-
+        user_experience::create(array('level'=> 1, 'experience' => 90, 'user_id' => 1));
         Role::create(array('priority' => 1, 'name' => 'Guest', 'hexcolor' => 'lightgrey'));
         Role::create(array('priority' => 99, 'name' => 'Admin', 'hexcolor' => 'Red'));
+
+        $experienceneeded = 0;
         for ($i = 1; $i < 51; $i++) {
+            $experienceneeded = $experienceneeded + 280 * (($i/10)+1);
             $timestamps = false;
-            level::create(array('level' => $i, 'experience' => ($i*45) * $i ));
+            level::create(array('level' => $i, 'experience' => $experienceneeded));
         }
     }
 }

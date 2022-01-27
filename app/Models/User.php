@@ -48,4 +48,5 @@ class User extends Authenticatable
         return $this->hasOne(user_experience::Class, 'user_id', 'id');
     }
 
+
 }
