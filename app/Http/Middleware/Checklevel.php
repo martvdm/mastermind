@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\Models\User;
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\user_experience;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,6 +21,13 @@ class Checklevel
     public function handle(Request $request, Closure $next)
     {
         if ($request->expectsJson() && !isset(Auth::user()->experience->level)) {
+            $levelData = array('user_id' => Auth::user()->id, 'experience' => 0, 'level' => 0);
+            $user = new user_experience();
+            $user->user_id = Auth::user()->id;
+            $user->experience = 0;
+            $user->level = 0;
+            $user->save();
+
 
         } elseif(isset(Auth::user()->experience->level)) {
             $user_experience = Auth::user()->experience->experience;

@@ -9,10 +9,7 @@ class user_experience extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'experience',
-        'level'
-    ];
+    public $fillable = ['level','user_id','experience'];
     public function user()
     {
         return $this->belongsTo(User::Class, 'id', 'user_id');

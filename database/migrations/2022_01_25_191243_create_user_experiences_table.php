@@ -14,7 +14,7 @@ class CreateUserExperiencesTable extends Migration
     public function up()
     {
         Schema::create('user_experiences', function (Blueprint $table) {
-            $table->id('user_id')->unique();
+            $table->BigInteger('user_id')->unique();
             $table->bigInteger('experience')->default(0);
             $table->integer('level')->default(0);
             $table->timestamps();
