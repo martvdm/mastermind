@@ -72,7 +72,7 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\user_experience|null $experience
+ * @property-read \App\Models\User_experience|null $experience
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \App\Models\Role|null $roles
@@ -154,14 +154,14 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\level|null $levellist
  * @property-read \App\Models\User|null $user
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience query()
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience whereExperience($value)
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience whereLevel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|user_experience whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience whereExperience($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience whereLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User_experience whereUserId($value)
  */
 	class user_experience extends \Eloquent {}
 }

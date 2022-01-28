@@ -13,6 +13,7 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth', 'checklevel'], function (){
 Route::post('/executesave' ,  [App\Http\Controllers\OptionsController::class, 'store']);
 
 Route::get('/', function () {
@@ -20,7 +21,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'auth'], function (){
+
     Route::get('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
 
     Route::post('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);

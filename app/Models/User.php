@@ -45,7 +45,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
     public function experience() {
-        return $this->hasOne(user_experience::Class, 'user_id', 'id');
+        return $this->hasOne(User_experience::Class, 'user_id', 'id');
     }
 
 

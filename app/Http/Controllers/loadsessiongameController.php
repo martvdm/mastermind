@@ -28,8 +28,14 @@ class loadsessiongameController extends Controller
         #          - The play board row array which , contains:
         #               - Every cell in row (stage)
         /////////////
+        $currentstageindex = Session::get('currentstageindex');
 
-        $playboard = Session::get('playboard');
+
+        if (!isset($currentstageindex)) {
+            $currentstageindex = 0;
+            Session::put('currentstageindex', $currentstageindex);
+        }
+        if (!isset($playboard))
         // configs:
         $maxcolorid = 4; ## Max INT of color ID's / Random game ID INT
         $maxguesses = 10;
@@ -37,9 +43,13 @@ class loadsessiongameController extends Controller
         ## Gets existing playboard array out of session
         ### !If playboard array doesn't exist:
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        $playboard = Session::get('playboard');
         if (!isset($playboard)) { # If playboard doesn't exist:
             $playboard = $this->createNewPlayboard($maxguesses);
         }
+
+
+
 
 
 
@@ -61,23 +71,19 @@ class loadsessiongameController extends Controller
         ///
         /// Current stage code
         /// //////////////////////////////////////////////////////////
-        $currentstageindex = Session::get('currentstageindex');
-        $victory = Session::get('victory');
-        if ($victory == true) {
-            Session::forget('currentstageindex');
-        }
-        if (!isset($currentstageindex)) {
-            $currentstageindex = 0;
-            Session::put('currentstageindex', $currentstageindex);
-        }
 
 
-        return view('mastermind.gameinput', ['randomgameid' => $randomgameid,
+
+        return view('mastermind.gameinput', [
+            'randomgameid' => $randomgameid,
             'playboard' => $playboard,
             'currentstageindex' => $currentstageindex, ##Returns the stage of the playboard into blade
             'playboardcheck' =>  Session::get('playboardcheck'),
             'victory' =>  Session::get('victory'),
-            'lost' =>  Session::get('lost')]);
+            'lost' =>  Session::get('lost'),
+            'endgamescore' => Session::get('endgamescore'),
+            'score' => Session::get('score')
+        ]);
     }
 
 

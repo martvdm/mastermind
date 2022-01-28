@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\user_experience;
+use App\Models\User_experience;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -27,6 +27,6 @@ class ModelViewer extends Controller
 //        user_experience::where('user_id', $user_id)->update(['level'=>$user_level, 'experience' => $user_experience]);
 //        $this->Users();
 
-        user_experience::where('user_id', Auth::user()->id)->update(['level'=>$user_nextlevel]);
+        User_experience::where('user_id', Auth::user()->id)->update(['level'=>$user_nextlevel]);
     }
 }

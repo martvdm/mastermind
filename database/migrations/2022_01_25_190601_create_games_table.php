@@ -18,7 +18,6 @@ class CreateGamesTable extends Migration
             $table->integer('user_id');
             $table->string('playboard');
             $table->bigInteger('score');
-            $table->string('time');
             $table->string('difficulty');
             $table->boolean('victory');
             $table->timestamps();

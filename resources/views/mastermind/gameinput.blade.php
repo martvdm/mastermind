@@ -19,7 +19,7 @@
     <div class="victoryscreen">
         <script>confetti.start()</script>
         <h1> Je hebt de code geraden! </h1>
-        <h1 style="font-size: 3vw">Score: 1424 -> Level 2</h1>
+        <h1 style="font-size: 3vw">Score: {{ $endgamescore }}</h1>
 
             <div class="rowdirector">
                 <h1 style="font-size: 4vw">De code was: </h1>
@@ -29,6 +29,8 @@
             </div>
         {{Session::forget('victory')}}
         {{Session::forget('randomgameid')}}
+        {{Session::forget('endgamescore')}}
+        {{Session::forget('currentstageindex')}}
         <div class="row">
         <a href="/mastermind/gameinput">
         <button class="checkbutton" style="margin-top: 0px">Reset</button>
@@ -45,7 +47,9 @@
         <h1> Je hebt de code niet geraden! </h1>
         {{Session::forget('lost')}}
         {{Session::forget('randomgameid')}}
-        <h1 style="font-size: 3vw">Score: 1424</h1>
+        {{Session::forget('endgamescore')}}
+        {{Session::forget('currentstageindex')}}
+        <h1 style="font-size: 3vw">Score: {{ $endgamescore }}</h1>
         <div class="rowdirector">
             <h1 style="font-size: 4vw">De code was: </h1>
             @foreach($randomgameid as $singlegameid)
