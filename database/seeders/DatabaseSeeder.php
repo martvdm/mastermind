@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         $experienceneeded = 0;
         for ($i = 1; $i < 51; $i++) {
-            $experienceneeded = $experienceneeded + 280 * (($i/10)+1);
+            $experienceneeded = ($experienceneeded + 280) * (($i/10)+1);
             $timestamps = false;
             level::create(array('level' => $i, 'experience' => $experienceneeded));
         }

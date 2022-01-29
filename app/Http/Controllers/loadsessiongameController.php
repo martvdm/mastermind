@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use MongoDB\Driver\Exception\SSLConnectionException;
 
 
 class loadsessiongameController extends Controller
@@ -29,7 +31,11 @@ class loadsessiongameController extends Controller
         #               - Every cell in row (stage)
         /////////////
         $currentstageindex = Session::get('currentstageindex');
-
+        $beforegamelevel = Session::get('beforegamelevel');
+        if (!isset($beforegamelevel)) {
+            $beforegamelevel = Auth::user()->experience->level;
+            Session::put('beforegamelevel', $beforegamelevel);
+        }
 
         if (!isset($currentstageindex)) {
             $currentstageindex = 0;
@@ -82,7 +88,8 @@ class loadsessiongameController extends Controller
             'victory' =>  Session::get('victory'),
             'lost' =>  Session::get('lost'),
             'endgamescore' => Session::get('endgamescore'),
-            'score' => Session::get('score')
+            'score' => Session::get('score'),
+            'beforegamelevel' => Session::get('beforegamelevel')
         ]);
     }
 

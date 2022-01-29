@@ -27,8 +27,7 @@ Route::get('/', function () {
     Route::post('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'store']);
     Route::get('/check' , [\App\Http\Controllers\checkstageController::class, 'check']);
     // admin
-    Route::get('/account/dashboard',function () {
-        return view('users.profile');
+    Route::get('/account/dashboard', [\App\Http\Controllers\User\ProfileController::class, 'show']);
     });
     Route::get('/account/settings',function () {
         return view('users.settings');
@@ -49,7 +48,7 @@ Route::get('/', function () {
 //        Route::resource('/users', \Admin\UserController::class);
         });
 
-    });
+
 
 Route::get('/test', [\App\Http\Controllers\ModelViewer::class, 'users']);
 

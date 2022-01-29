@@ -20,7 +20,9 @@
         <script>confetti.start()</script>
         <h1> Je hebt de code geraden! </h1>
         <h1 style="font-size: 3vw">Score: {{ $endgamescore }}</h1>
-
+        @if(Auth::user()->experience->level > $beforegamelevel)
+        <h1 style="font-size: 2vw; color: #00dd83">Level {{$beforegamelevel}} > {{Auth::user()->experience->level}}</h1>
+        @endif
             <div class="rowdirector">
                 <h1 style="font-size: 4vw">De code was: </h1>
             @foreach($randomgameid as $singlegameid)
@@ -31,6 +33,7 @@
         {{Session::forget('randomgameid')}}
         {{Session::forget('endgamescore')}}
         {{Session::forget('currentstageindex')}}
+        {{Session::forget('beforegamelevel')}}
         <div class="row">
         <a href="/mastermind/gameinput">
         <button class="checkbutton" style="margin-top: 0px">Reset</button>
@@ -49,7 +52,9 @@
         {{Session::forget('randomgameid')}}
         {{Session::forget('endgamescore')}}
         {{Session::forget('currentstageindex')}}
+        {{Session::forget('beforegamelevel')}}
         <h1 style="font-size: 3vw">Score: {{ $endgamescore }}</h1>
+        <h1>test</h1>
         <div class="rowdirector">
             <h1 style="font-size: 4vw">De code was: </h1>
             @foreach($randomgameid as $singlegameid)

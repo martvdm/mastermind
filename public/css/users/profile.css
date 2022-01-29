@@ -124,4 +124,39 @@ body {
 .hidden {
     display: none;
 }
+.leveldiagram {
+    width: 50%;
+    display: flex;
+    height: auto;
+    overflow: visible;
+    border: var(--color-outline) 0.1vw solid;
+    justify-content: left;
+    color: var(--contrast-color);
+    overflow-x: hidden;
+
+}
+.leveldiagram .userprogress {
+    background: var(--primary-color);
+    justify-content: right;
+
+}
+.leveldiagram p {
+    color: var(--contrast-color);
+overflow-x: visible;
+    display: flex;
+    width: 0;
+    margin: auto;
+    justify-content: center;
+    font-size: 1vw;
+    z-index: 10;
+    position: relative;
+
+
+}
+.neededexperience {
+    background: #676767;
+    width: max-content;
+    display: flex;
+}
+
 
