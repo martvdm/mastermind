@@ -43,10 +43,10 @@ Route::get('/', function () {
         'middleware' => 'admin',
         'prefix' => 'admin',
     ], function() {
-//        Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
-//        Route::get('/roles', [\App\Http\Controllers\AdminController::class, 'roles']);
-        Route::resource('/roles', \Admin\RoleController::class);
-        Route::resource('/users', \Admin\UserController::class);
+        Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
+        Route::get('/roles', [\App\Http\Controllers\AdminController::class, 'roles']);
+//        Route::resource('/roles', \Admin\RoleController::class);
+//        Route::resource('/users', \Admin\UserController::class);
         });
 
     });
