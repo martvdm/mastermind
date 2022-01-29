@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\game;
 use App\Models\user_experience;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -106,12 +107,14 @@ class checkstageController extends Controller
                 $score = $score + $experienceworth;
                 Session::put('score', $score);
                 $this->Addexperiencetable();
+                $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
                 $this->resetgamesession();
             } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
                 $lost = true;
                 $score = $score + $experienceworth;
                 Session::put('score', $score);
                 $this->Addexperiencetable();
+                $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
                 $this->resetgamesession();
         }
         if (Session::has('randomgameid') && $filledcells == 4) {
@@ -125,6 +128,8 @@ class checkstageController extends Controller
         Session::put('lost', $lost);
         Session::put('randomgameid', $randomgameid);
         return redirect('/mastermind/gameinput');
+
+
 
 
     }
@@ -146,7 +151,7 @@ class checkstageController extends Controller
     protected function addexperience(int $currentstageindex, int $experienceworth, float $difficulty): void
     {
         $score = Session::get('score');
-        $score = $score + ((($currentstageindex - 10) * -1) * ($experienceworth * $difficulty));
+        $score = $score + (((($currentstageindex+1) - 10) * -1) * ($experienceworth * $difficulty));
         Session::put('score', $score);
     }
 
@@ -157,6 +162,33 @@ class checkstageController extends Controller
 
         Session::put('endgamescore', $experienceendgame);
         User_experience::where('user_id', Auth::user()->id)->update(['experience' => $experiencetotal]);
+    }
+
+    /**
+     * @param $victory
+     * @param $playboard
+     * @param $playboardcheck
+     * @param float $difficulty
+     * @param $randomgameid
+     * @param bool $lost
+     */
+    protected function GametoTable($victory, $playboard, $playboardcheck, string $difficulty, $randomgameid, bool $lost): void
+    {
+        if ($victory == true) {
+            game::create(array('user_id' => Auth::user()->id, 'playboard' => $playboard,
+                'playboardcheck' => $playboardcheck,
+                'score' => Session::get('endgamescore'),
+                'difficulty' => $difficulty,
+                'randomgameid' => $randomgameid,
+                'status' => 'won'));
+        } elseif ($lost == true) {
+            game::create(array('user_id' => Auth::user()->id, 'playboard' => $playboard,
+                'playboardcheck' => $playboardcheck,
+                'score' => Session::get('endgamescore'),
+                'difficulty' => $difficulty,
+                'randomgameid' => $randomgameid,
+                'status' => 'lost'));
+        }
     }
 
 }

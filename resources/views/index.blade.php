@@ -3,17 +3,18 @@
 <body>
 
 <x-navigation></x-navigation>
-{{--<div class="testcontainer">--}}
-{{--    <a href="/mastermind/gameinput">--}}
-{{--        <button class="bluebutton" style=" background: #e2e8f0; color: black">Testapps</button>--}}
-{{--    </a>--}}
-{{--    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"--}}
-{{--            onclick="DivToggle('leaderboard')">Leaderboard--}}
-{{--    </button>--}}
-{{--    <button class="bluebutton" style="margin-bottom: 10%; background: #e2e8f0; color: black"--}}
-{{--            onclick="DivToggle('options')">Instellingen--}}
-{{--    </button>--}}
-{{--</div>--}}
+
+    <a href="/mastermind/gameinput">
+        <button class="bluebutton" style=" background: #e2e8f0; color: black">Testapps</button>
+    </a>
+    <button class="bluebutton" style="background: #e2e8f0; color: black"
+            onclick="DivToggle('leaderboard')">Leaderboard
+    </button>
+    <button class="bluebutton" style="background: #e2e8f0; color: black"
+            onclick="DivToggle('options')">Instellingen
+    </button>
+
+
 <div class="container">
         <div class="popup" id="leaderboard" style="visibility: hidden;flex-direction: column">
             <div class="top">

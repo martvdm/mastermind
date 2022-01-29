@@ -47,6 +47,8 @@ class User extends Authenticatable
     public function experience() {
         return $this->hasOne(User_experience::Class, 'user_id', 'id');
     }
-
+    public function games() {
+        return $this->hasMany(game::class, 'user_id', 'id');
+    }
 
 }

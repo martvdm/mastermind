@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\game;
 use App\Models\Permission;
 use App\Models\PermissionRole;
 use App\Models\Role;
@@ -20,7 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create(array('name' => 'Mart', 'password' => '$2y$10$EO5yNCR3WgSfNPJ1OiOtGeRxDEOdRNL0yWIqkMQOfcJwhTNk23Lha', 'role_id' => 2, 'email' => 'belikemart@gmail.com'));
+        User::create(array('name' => 'Mart', 'password' => '$2y$10$EO5yNCR3WgSfNPJ1OiOtGeRxDEOdRNL0yWIqkMQOfcJwhTNk23Lha', 'role_id' => 2, 'email' => 'belikemart@gmail.com', 'picture' => 'img.png'));
         Permission::create(array('permission' => 'administrator'));
         Permission::create(array('permission' => 'edit users'));
         Permission::create(array('permission' => 'edit roles'));
@@ -31,9 +32,13 @@ class DatabaseSeeder extends Seeder
         Role::create(array('priority' => 99, 'name' => 'Admin', 'hexcolor' => 'Red'));
 
         $experienceneeded = 0;
-        for ($i = 1; $i < 51; $i++) {
-            $experienceneeded = ($experienceneeded + 280) * (($i/10)+1);
-            $timestamps = false;
+        for ($i = 0; $i < 51; $i++) {
+            if ($i == 0) {
+                $extranumber = 0;
+            } else {
+                $extranumber = 280;
+            }
+            $experienceneeded = $experienceneeded + $extranumber * (($i/10)+1);
             level::create(array('level' => $i, 'experience' => $experienceneeded));
         }
     }

@@ -24,9 +24,9 @@
         <h2 style="margin-right: 2%">Level {{Auth::user()->experience->level}}</h2>
 
         <div class="leveldiagram">
-            <div class="userprogress" style="width: {{$user_progress}}%"></div>
+            <div class="userprogress" style="animation: fadeInWidth 1s; width: {{$user_progress}}%"></div>
            <p>{{$user_progress}}%</p>
-            <div class="neededexperience" style="width: {{100-$user_progress}}%;"></div>
+            <div class="neededexperience" style=" width: {{100-$user_progress}}%;"></div>
 
         </div>
 

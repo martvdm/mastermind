@@ -13,10 +13,12 @@ body {
     display: flex;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.75);
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     justify-content: center;
     z-index: 100;
+    margin: 0;
+    top: 0;
     flex-direction: column;
 }
 @keyframes fadeIn {
@@ -160,7 +162,9 @@ border: 1px solid black;
     display: flex;
     flex-direction: column-reverse;
     padding: 10px;
-
+    display: flex;
+    position: fixed;
+    margin-top: 50vh;
     border: 3px limegreen solid;
     color: limegreen;
     background-color: #1a202c;

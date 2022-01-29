@@ -22,7 +22,6 @@
 .row {
     display: flex;
     flex-direction: row;
-    margin: auto;
 }
 .column {
     display: flex;

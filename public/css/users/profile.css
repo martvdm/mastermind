@@ -125,6 +125,7 @@ body {
     display: none;
 }
 .leveldiagram {
+    /*animation: fadeInWidth 1s;*/
     width: 50%;
     display: flex;
     height: auto;
@@ -133,11 +134,13 @@ body {
     justify-content: left;
     color: var(--contrast-color);
     overflow-x: hidden;
+    background: #676767;
 
 }
 .leveldiagram .userprogress {
     background: var(--primary-color);
     justify-content: right;
+    transition: width 1s ease;
 
 }
 .leveldiagram p {
@@ -157,6 +160,11 @@ overflow-x: visible;
     background: #676767;
     width: max-content;
     display: flex;
-}
 
+}
+@keyframes fadeInWidth {
+    from {
+        width: 0;
+    }
+}
 

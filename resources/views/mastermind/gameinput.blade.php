@@ -87,7 +87,7 @@
                                     <div class="greencursor">
 @endif
 
-<div class="rowdirector">
+<div class="rowdirector" style="margin-top: 10%">
     <div class="selectcontainer" style="margin-right: 5%">
         <form method="post">
             @csrf

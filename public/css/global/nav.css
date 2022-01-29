@@ -2,13 +2,13 @@
 nav {
     top: 0;
     width: 100vw;
-    height: min-content;
+    height: 16%;
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: space-between;
     margin: 0;
-    z-index: 50;
-    position: fixed;
+    z-index: 1000;
     padding-top: 0.6vw;
 
 }
@@ -21,18 +21,17 @@ nav a {
     flex-direction: column-reverse;
     display: flex;
     color: white;
-    height: max-content;
+    height: min-content;
     width: max-content;
     font-size: 1.1vw;
     justify-content: center;
     cursor: pointer;
     user-select: none;
-    height: auto;
     transition: font-size linear 0.1s;
     margin: auto;
     margin-right: 4%;
 }
-.nav .username {
+nav .username {
     display: flex;
     color: white;
     margin: auto;

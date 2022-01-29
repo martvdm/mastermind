@@ -16,10 +16,12 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('playboard');
+            $table->json('playboard');
+            $table->json('playboardcheck');
+            $table->json('randomgameid');
             $table->bigInteger('score');
             $table->string('difficulty');
-            $table->boolean('victory');
+            $table->string('status');
             $table->timestamps();
         });
     }
