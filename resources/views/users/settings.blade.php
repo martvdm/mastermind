@@ -10,5 +10,9 @@
         Naam
         <input type="text" value="{{Auth::user()->name}}"><button>Save</button>
     </form>
+    <form enctype="multipart/form-data" method="post">
+        @csrf
+        <input type="file" name="picture"><button type="submit">Save</button>
+    </form>
 </div>
 @endsection

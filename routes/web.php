@@ -30,6 +30,7 @@ Route::get('/', [\App\Http\Controllers\LeaderboardController::class, 'Give']);
     Route::get('/account/settings',function () {
         return view('users.settings');
     });
+    Route::post('/account/settings', [\App\Http\Controllers\User\ProfileController::class, 'Update_profile']);
     Route::get('/account/preferences',function () {
         return view('users.preferences');
     });

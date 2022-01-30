@@ -29,7 +29,7 @@
         @foreach($games as $game)
             <div class="row"><p class="placement{{$loop->index+1}}">#{{$loop->index+1}} </p><label> <img class="profilepicture" style="width: 2rem; height: 2rem" src="
             @if(isset($users[$game->user_id]['picture']))
-                    /images/users/{{$users[$game->user_id]['picture']}}
+                    /uploads/pictures/{{$users[$game->user_id]['picture']}}
                 @else
                     /images/user-64.png
 @endif

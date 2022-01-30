@@ -45,7 +45,7 @@
                 <x-role-shower></x-role-shower>
                 <img class="dropdownimg" src="
             @if(isset(Auth::user()->picture))
-                    /images/users/{{Auth::user()->picture}}
+                    /uploads/pictures/{{Auth::user()->picture}}
                 @else
                     /images/user-64.png
 @endif

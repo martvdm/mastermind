@@ -5,7 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\level;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class ProfileController extends Controller
 {
@@ -27,6 +29,14 @@ class ProfileController extends Controller
         return view('users.profile', ['user_experience' => $user_experience, 'user_neededexperience' => $user_neededexperience, 'user_progress' => $user_progress]);
     }
     public function Update_profile(Request $request) {
+        if ($request->hasFile('picture')){
+            $picture = $request->file('picture');
+            $file = time() . '.' . $picture->getClientOriginalExtension();
+            Image::make($picture)->resize(200, 200)->save(public_path('/uploads/pictures/' . $file));
+            $user = Auth::user();
+            User::where('id', $user->id)->update(['picture' => $file]);
 
+        };
+        return redirect('/account/settings');
     }
 }

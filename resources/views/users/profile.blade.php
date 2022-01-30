@@ -5,7 +5,7 @@
         <div class="card" style="width: 100%">
             <img style="width: 4vw; height: 4vw" src="
             @if(isset(Auth::user()->picture))
-                /images/users/{{Auth::user()->picture}}
+                /uploads/pictures/{{Auth::user()->picture}}
             @else
                 /images/user-64.png
 @endif
