@@ -1,17 +1,29 @@
 .popup {
     display: flex;
-    margin: auto;
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+    top: 0;
     width: 75vw;
-    height: auto;
+    height: 70vh;
     position: fixed;
     padding: 1vw;
     border-radius: 25px;
     background: white;
-    z-index: 1000;
+
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
 }
 
-
+.profilepicture  {
+    background-color: #cbd5e0;
+    width: 4vw;
+    object-fit: cover;
+    border-radius: 50%;
+    border: white 0.11vw solid;
+    height: 4vw;
+    margin-right: 2%;
+    background-size: cover;
+}
 .popup h1 {
 
     display: flex;
@@ -19,14 +31,6 @@
     font-family: SharpSans,Helvetica,Arial,sans-serif;
     font-size: 4vw;
     color: #05164c;
-}
-.popup footer {
-    display: flex;
-
-    padding-inline: 5vw;
-    height: min-content;
-    justify-content: right;
-    width: 100vw;
 }
 .popup .row {
     height: auto;
@@ -36,13 +40,13 @@
     margin-inline: 10%;
     border-bottom: 1.5px lightgray solid;
 }
-.popup .row p {
-    display: flex;
-    height: auto;
-    padding: 2px;
-    margin-left: 10%;
-    font-size: 1.5vw;
-}
+/*.popup .row p {*/
+/*    display: flex;*/
+/*    height: auto;*/
+/*    padding: 2px;*/
+/*    margin-left: 10%;*/
+/*    font-size: 1.5vw;*/
+/*}*/
 .popup .top {
     margin-top: 2%;
     display: flex;
@@ -96,17 +100,7 @@
     height: 100%;
     flex-direction: column;
 }
-.popup .sidebar a {
-    display: flex;
-    color: #05164c;
-    font-size: 1.1vw;
-    padding: 0.7vw;
-    text-underline: #2d3748;
-}
-.popup .sidebar a:focus {
-    background: #0049e9;
-    color: white;
-}
+
 #popupcontent {
     flex-direction: row;
     display: flex;
@@ -142,27 +136,6 @@
 #popupcontent option {
     font-size: 1.2vw;
 }
-#popupcontent .themeexample {
-    width: 25%;
-    height: 20%;
-    border-radius: 2vw;
-    font-size: 3vw;
-    margin: 2vw;
-    display: flex;
-    padding: 2vw;
-    justify-content: center;
-    border: 1px solid gray;
-}
-#popupcontent .dark {
-    background: #2d3748;
-    color: white;
-}
-#popupcontent .light {
-    background: #ffffff;
-    color: #000000;
-}
-#popupcontent .table {
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-}
+
+
+

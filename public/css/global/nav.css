@@ -95,6 +95,7 @@ nav .username {
     display: flex;
     background-color: var(--contrast-color);
     flex-direction: column;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .dropdownimg {
@@ -141,16 +142,17 @@ nav .username {
     color: var(--color-outline);
 }
  a .role {
-     margin-inline: auto;
+     /*margin-inline: auto;*/
  }
  .role  {
     display: flex;
     /*margin: auto;*/
+    cursor: inherit;
     font-weight: bold;
     color: white;
-     width: max-content;
+     width: min-content;
     height: min-content;
     padding: 0.4vw;
-     margin-left: auto;
+     /*margin-left: auto;*/
     border-radius: 5%;
 }

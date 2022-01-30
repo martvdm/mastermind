@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\game;
 use App\Models\user_experience;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AddexperienceController;
+
 class checkstageController extends Controller
 {
     ###############################################
@@ -90,7 +92,7 @@ class checkstageController extends Controller
                             $experienceworth = 1;
                             $this->addexperience($currentstageindex, $experienceworth, $difficulty);
 
-                        } elseif($randomgameidcheck[$index] > -1) {
+                        } elseif ($randomgameidcheck[$index] > -1) {
                             $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # Stands for doesn't exist in game
 
                         }
@@ -102,20 +104,21 @@ class checkstageController extends Controller
         if ($playboardcheck[$currentstageindex][2] === count($randomgameid)) { //If all indexes are correct in currentstageindex, victory = true
             $victory = true;
         }
-            if ($victory === true) { //If victory is true, reset session.;
-                $experienceworth = 100;
-                $score = $score + $experienceworth;
-                Session::put('score', $score);
-                $this->Addexperiencetable();
-                $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
-                $this->resetgamesession();
-            } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
-                $lost = true;
-                $score = $score + $experienceworth;
-                Session::put('score', $score);
-                $this->Addexperiencetable();
-                $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
-                $this->resetgamesession();
+        if ($victory === true) { //If victory is true, reset session.;
+            $experienceworth = 100;
+            $score = Session::get('score');
+            $score = $score + $experienceworth;
+            Session::put('score', $score);
+            $this->Addexperiencetable();
+            $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
+            $this->resetgamesession();
+        } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
+            $lost = true;
+            $score = $score + $experienceworth;
+            Session::put('score', $score);
+            $this->Addexperiencetable();
+            $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
+            $this->resetgamesession();
         }
         if (Session::has('randomgameid') && $filledcells == 4) {
             $currentstageindex = $currentstageindex + 1;
@@ -128,8 +131,6 @@ class checkstageController extends Controller
         Session::put('lost', $lost);
         Session::put('randomgameid', $randomgameid);
         return redirect('/mastermind/gameinput');
-
-
 
 
     }
@@ -151,7 +152,7 @@ class checkstageController extends Controller
     protected function addexperience(int $currentstageindex, int $experienceworth, float $difficulty): void
     {
         $score = Session::get('score');
-        $score = $score + (((($currentstageindex+1) - 10) * -1) * ($experienceworth * $difficulty));
+        $score = $score + (((($currentstageindex + 1) - 10) * -1) * ($experienceworth * $difficulty));
         Session::put('score', $score);
     }
 

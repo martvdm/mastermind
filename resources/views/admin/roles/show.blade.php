@@ -27,7 +27,7 @@
             <h4 style="margin-left: unset;">{{ $role->id }}</h4>
             <h4 class="role" style="color: {{ $role->hexcolor }}; margin-left: unset;">{{ $role->name }}</h4>
             <h4>{{ $role->priority }}</h4>
-            <h4>{{ $role->permissions }}</h4>
+            <h4>{{ $role->permission}}</h4>
 
         </div>
     @endforeach

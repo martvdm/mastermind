@@ -16,9 +16,7 @@ use App\Models\User;
 Route::group(['middleware' => 'auth', 'checklevel'], function (){
 Route::post('/executesave' ,  [App\Http\Controllers\OptionsController::class, 'store']);
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [\App\Http\Controllers\LeaderboardController::class, 'Give']);
 
 
 

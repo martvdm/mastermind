@@ -14,7 +14,7 @@ class AdminController extends Controller
             return view('admin.users', ['users' => User::all()]);
     }
     public function Roles() {
-        return view('admin.roles.show', ['roles' => Role::all()]);
+        return view('admin.roles.show', ['roles' => Role::all()->sortByDesc('priority')]);
 
     }
 }

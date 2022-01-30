@@ -25,7 +25,7 @@
 
         <div class="leveldiagram">
             <div class="userprogress" style="animation: fadeInWidth 1s; width: {{$user_progress}}%"></div>
-           <p>{{$user_progress}}%</p>
+            <p>{{$user_progress}}%</p>
             <div class="neededexperience" style=" width: {{100-$user_progress}}%;"></div>
 
         </div>
