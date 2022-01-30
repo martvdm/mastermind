@@ -105,7 +105,7 @@ class checkstageController extends Controller
             $victory = true;
         }
         if ($victory === true) { //If victory is true, reset session.;
-            $experienceworth = 100;
+            $experienceworth = 60;
             $score = Session::get('score');
             $score = $score + $experienceworth;
             Session::put('score', $score);
@@ -114,6 +114,7 @@ class checkstageController extends Controller
             $this->resetgamesession();
         } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
             $lost = true;
+            $experienceworth = 0;
             $score = $score + $experienceworth;
             Session::put('score', $score);
             $this->Addexperiencetable();
@@ -152,7 +153,7 @@ class checkstageController extends Controller
     protected function addexperience(int $currentstageindex, int $experienceworth, float $difficulty): void
     {
         $score = Session::get('score');
-        $score = $score + (((($currentstageindex + 1) - 10) * -1) * ($experienceworth * $difficulty));
+        $score = $score + (($experienceworth * ($currentstageindex/10)) * ($experienceworth * $difficulty));
         Session::put('score', $score);
     }
 

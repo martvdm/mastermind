@@ -34,10 +34,13 @@
 }
 .leaderboard p {
    font-size:  1rem;
+    justify-content: left;
+    width: 100%;
 }
 .leaderboard label {
     font-size:  1rem;
     font-weight: bold;
+    justify-content: left;
     color: var(--color-outline);
 }
 .leaderboard .placement1 {
@@ -126,10 +129,17 @@
     overflow-x: hidden;
 }
 .popup label {
-    justify-content: center;
+    justify-content: left;
     margin: auto;
     position: relative;
     display: flex;
+    width: 100%;
+}
+.difficulty {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: min-content; !important;
+    margin-right: 100%;
 }
 .popup .sidebar {
     width: 12%;

@@ -26,6 +26,12 @@
     </div>
     <input type="text" id="searchbar" placeholder="Zoeken..." onkeyup="myFunction()">
     <div class="column leaderboard" id="searcharea" style="flex-direction: column;">
+        <div class="row" style="margin-top: 5%">
+            <label>Place</label>
+            <label>User</label>
+            <label>Score</label>
+            <label style="width: min-content; margin-right: 7%">Difficulty</label>
+        </div>
         @foreach($games as $game)
             <div class="row"><p class="placement{{$loop->index+1}}">#{{$loop->index+1}} </p><label> <img class="profilepicture" style="width: 2rem; height: 2rem" src="
             @if(isset($users[$game->user_id]['picture']))
@@ -33,15 +39,16 @@
                 @else
                     /images/user-64.png
 @endif
-                    "> {{ $users[$game->user_id]['name'] }}
-                    Lvl.{{ $users[$game->user_id]['level'] }}</label>
+                        "><div class="columndirector"> <p>{{ $users[$game->user_id]['name'] }}</p>
+                        <p>Lvl.{{ $users[$game->user_id]['level'] }}</p></div></label>
                 <label>{{$game->score}}</label>
+
                     @if($game->difficulty == 0.5)
-                    <label style="color: white; background: lightgreen; padding: 0.5rem; border-radius: 1rem">{{__('Easy')}}</label>
+                    <label style="color: white; background: lightgreen; width: min-content;margin-right: 5%;" class="difficulty">{{__('Easy')}}</label>
                         @elseif($game->difficulty == 1)
-                    <label style="color: white; background: orange; padding: 0.5rem; border-radius: 1rem">  {{__('Normal')}}</label>
+                    <label style="color: white; background: orange; width: min-content;margin-right: 5%;"  class="difficulty">{{__('Normal')}}</label>
                     @elseif($game->difficulty == 1.5)
-                    <label style="color: white; background: darkred; padding: 0.5rem; border-radius: 1rem">  {{__('Hard')}}</label>
+                    <label style="color: white; background: darkred; width: min-content; margin-right: 5%;"  class="difficulty">{{__('Hard')}}</label>
                     @endif
 
                 <button class="bluebutton">👁</button>
