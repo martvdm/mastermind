@@ -29,7 +29,7 @@
 }
 
 h1 {
-    font-size: 20vw;
+    font-size: 20rem;
     color: var(--contrast-color);
     margin: auto;
     display: flex;
@@ -55,7 +55,7 @@ body {
 
 .contentbox h1 {
     display: inline;
-    font-size: 4vw;
+    font-size: 4rem;
     font-family: var(--standard-fontfamily);
     color: var(--color-outline);
 
@@ -66,7 +66,7 @@ body {
     display: flex;
     width: 100%;
     height: auto;
-    margin-bottom: 2vw;
+    margin-bottom: 2rem;
     border-bottom: 1px lightgray solid;
 }
 
@@ -74,13 +74,13 @@ body {
     background-color: var(--secondary-color); /* Green */
     border: none;
     color: white;
-    border-radius: 1vw;
+    border-radius: 1rem;
     margin-bottom: 2%;
     padding: 0.5vw 1.0vw;
     text-align: center;
     text-decoration: none;
     display: flex;
-    font-size: 1.0vw;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     margin-left: auto;
@@ -106,11 +106,11 @@ body {
 
 .card img  {
     background-color: #cbd5e0;
-    width: 4vw;
+    width: 4rem;
     object-fit: cover;
     border-radius: 50%;
     border: white 0.11vw solid;
-    height: 4vw;
+    height: 4rem;
     margin-right: 2%;
     background-size: cover;
 }
@@ -125,14 +125,14 @@ body {
     flex-wrap: nowrap;
     display: flex;
     color: var(--color-outline);
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 .card p {
     display: flex;
     color: #b9bdc7;
-    font-size: 1vw;
+    font-size: 1rem;
 }
 
 .hidden {
@@ -167,7 +167,7 @@ body {
     width: 0;
     margin: auto;
     justify-content: center;
-    font-size: 1vw;
+    font-size: 1rem;
     z-index: 10;
     position: relative;
 

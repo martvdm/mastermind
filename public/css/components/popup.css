@@ -32,6 +32,35 @@
     font-size: 4vw;
     color: #05164c;
 }
+.leaderboard p {
+   font-size:  1rem;
+}
+.leaderboard label {
+    font-size:  1rem;
+    font-weight: bold;
+    color: var(--color-outline);
+}
+.leaderboard .placement1 {
+    color: goldenrod;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.leaderboard .placement2 {
+    color: #727171;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.leaderboard .placement3 {
+    color: rgba(215,94,65,0.98);
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.leaderboard .placement {
+    font-weight: bold;
+    font-size: 2rem;
+    color: var(--color-outline);
+}
+
 .popup .row {
     height: auto;
     padding: 2px;
@@ -39,6 +68,14 @@
     flex-direction: row;
     margin-inline: 10%;
     border-bottom: 1.5px lightgray solid;
+}
+.bluebutton {
+    background: var(--primary-color);
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    border: unset;
+    color: white;
+    font-size: 1.5rem;
 }
 /*.popup .row p {*/
 /*    display: flex;*/
