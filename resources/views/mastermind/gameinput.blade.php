@@ -2,7 +2,7 @@
 
     @section('title') Mastermind @endsection
 @section('extracss')
-    <link rel="stylesheet" type="text/css" href="/css/apptest/structure.css">
+    <link rel="stylesheet" type="text/css" href="/css/mastermind/structure.css">
     @endsection
     @section('extrascript')
         <!-- tsParticles main script -->
@@ -87,7 +87,7 @@
                                     <div class="greencursor">
 @endif
 
-<div class="rowdirector" style="margin-top: 10%">
+<div class="rowdirector" style="margin-top: 2%">
     <div class="selectcontainer" style="margin-right: 5%">
         <form method="post">
             @csrf

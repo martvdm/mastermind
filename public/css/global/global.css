@@ -1,0 +1,12 @@
+.card {
+    display: flex; /* Will not center vertically and won't work in IE6/7. */
+    width: unset;
+    height: unset;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 2.5rem;
+    background: white;
+    box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+    flex-direction: column;
+    padding-inline: 10rem;
+}

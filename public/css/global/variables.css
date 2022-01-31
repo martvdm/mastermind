@@ -3,6 +3,13 @@
     flex-wrap: unset;
     font-family: var(--standard-fontfamily);
 }
+body {
+    background-image: url("/images/icebackgroundCHelina.png");
+    background-size: cover;
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
 
 :root {
     --primary-color: #0049e9;

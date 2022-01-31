@@ -10,7 +10,7 @@
     @yield('extracss')
     @yield('extrascript')
 </head>
-<body style="background: var(--primary-color)">
+<body>
 @yield('assets')
 </body>
 </html>

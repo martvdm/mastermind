@@ -1,0 +1,23 @@
+.logincard {
+    width: auto;
+    height: auto;
+    min-width: 7rem;
+    max-width: 30rem;
+    margin: auto;
+    border-radius: 2.5rem;
+    background: white;
+    justify-self: center;
+    margin-top: auto;
+    padding-inline: 5%;
+}
+.logincard .top {
+    margin-bottom: 7%;
+}
+.logincard input[type=email],input[type=password] {
+    min-width: 65%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: #2d3748 0.1rem solid;
+    max-width: 85%;
+    display: flex;
+}

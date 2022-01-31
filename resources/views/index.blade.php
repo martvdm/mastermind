@@ -48,10 +48,9 @@
                         @elseif($game->difficulty == 1)
                     <label style="color: white; background: orange; width: min-content;margin-right: 5%;"  class="difficulty">{{__('Normal')}}</label>
                     @elseif($game->difficulty == 1.5)
-                    <label style="color: white; background: darkred; width: min-content; margin-right: 5%;"  class="difficulty">{{__('Hard')}}</label>
+                    <label style="color: white; background: darkred; width: min-content; margin-right: 7%;"  class="difficulty">{{__('Hard')}}</label>
                     @endif
 
-                <button class="bluebutton">👁</button>
             </div>
 
         @endforeach

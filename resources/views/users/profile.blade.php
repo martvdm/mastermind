@@ -22,7 +22,7 @@
     <div class="card" style="width: 100%; margin-top: 4%; flex-direction: column">
 
         <h2 style="margin-right: 2%">Level {{Auth::user()->experience->level}}</h2>
-
+        <p>{{$user_experience}}/{{$user_neededexperience}}</p>
         <div class="leveldiagram">
             <div class="userprogress" style="animation: fadeInWidth 1s; width: {{$user_progress}}%"></div>
             <p>{{$user_progress}}%</p>

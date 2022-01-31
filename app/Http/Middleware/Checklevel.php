@@ -19,7 +19,7 @@ class Checklevel
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && !isset(Auth::user()->experience)) {
-            User_experience::create(['user_id' => Auth::user()->id, 'level'=> 1, 'experience' => 10]);
+            User_experience::create(['user_id' => Auth::user()->id, 'level'=> 1, 'experience' => 20]);
         } elseif(Auth::check() && isset(Auth::user()->experience->level)) {
             $user_experience = Auth::user()->experience->experience;
 

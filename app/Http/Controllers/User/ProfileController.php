@@ -13,16 +13,14 @@ class ProfileController extends Controller
 {
     public function Show() {
         $user_level = Auth::user()->experience->level-1;
-        if ($user_level == 1) {
-            $user_level = Auth::user()->experience->level;
-        }
+
         $calculateexperience = level::where('level',$user_level)->first()->experience;
 
         $user_experience = Auth::user()->experience->experience - $calculateexperience;
         $user_neededexperience = Auth::user()->experience->levellist->experience - $calculateexperience;
 
         if ($user_experience > 0) {
-            $user_progress = round((100 * ($user_experience / $user_neededexperience)), 2);
+            $user_progress = round((100 * ($user_experience / $user_neededexperience)), 1);
         } else {
             $user_progress = 0;
         }
