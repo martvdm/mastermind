@@ -106,15 +106,34 @@ body {
 
 .card img  {
     background-color: #cbd5e0;
-    width: 4rem;
+    width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: white 0.11vw solid;
-    height: 4rem;
+    border: white 0.11rem solid;
+    height: 100%;
+    display: flex;
     margin-right: 2%;
+    position: relative;
+    z-index: 0;
     background-size: cover;
 }
+#imageinput {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 6.11rem;
+    border-radius: 50%;
+    height: 6.11rem;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    color: #adadad;
+    font-size: 1rem;
+    justify-content: center;
+    margin-right: 2%;
+    z-index: 100;
+    text-align: center;
+    align-items: center;
 
+}
 .profilecardtext {
     padding-left: 2%;
     flex-direction: column;
@@ -133,6 +152,15 @@ body {
     display: flex;
     color: #b9bdc7;
     font-size: 1rem;
+
+}
+.card a {
+    font-size: 0.7rem;
+    color: var(--primary-color);
+    margin-left: 1rem;
+}
+.card a:hover {
+    border-bottom: solid 0.06rem var(--primary-color);
 }
 
 .hidden {

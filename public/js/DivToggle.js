@@ -7,4 +7,6 @@ function DivToggle(id) {
         id.style.visibility = "hidden";
     }
 }
-
+$('#triggerpictureinput').on('click', function() {
+    $('#pictureinput').trigger('click');
+});

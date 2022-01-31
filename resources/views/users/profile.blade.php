@@ -1,9 +1,10 @@
 @extends('layouts.profilelayout')
 @section('titlebox'){{__('profile')}}@endsection
+@section('extrascript') @endsection
 @section('contentassets')
     <a href="/account/settings">
         <div class="card" style="width: 100%">
-            <img style="width: 4vw; height: 4vw" src="
+            <img style="width: 4rem; height: 4rem" src="
             @if(isset(Auth::user()->picture))
                 /uploads/pictures/{{Auth::user()->picture}}
             @else

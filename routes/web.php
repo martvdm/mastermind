@@ -18,7 +18,7 @@ Route::post('/executesave' ,  [App\Http\Controllers\OptionsController::class, 's
 
 Route::get('/', [\App\Http\Controllers\LeaderboardController::class, 'Give']);
 
-
+    Route::post("/saveprofilepicture", [\App\Http\Controllers\User\ProfileController::class, 'Update_profilepicture']);
 
     Route::get('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
 
