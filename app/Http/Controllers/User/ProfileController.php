@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Image;
-
+use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     public function Show()
@@ -46,10 +46,11 @@ class ProfileController extends Controller
 
     public function Update_profile(UpdateProfileRequest $request)
     {
-        User::where('id', Auth::user()->id)->update(['email' => $request->email, 'name' => $request->name]);
-
+        if (Hash::check($request->current_password, Auth::user()->password)){
+            User::where('id', Auth::user()->id)->update(['email' => $request->email, 'name' => $request->name]);
         if ($request->input('password')) {
             User::where('id', Auth::user()->id)->update(['password' => bcrypt($request->input('password'))]);
+        }
         }
         return redirect('/account/settings');
     }

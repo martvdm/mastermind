@@ -3,6 +3,7 @@
     @section('title') Mastermind @endsection
 @section('extracss')
     <link rel="stylesheet" type="text/css" href="/css/mastermind/structure.css">
+    <link rel="stylesheet" type="text/css" href="/css/global/global.css">
     @endsection
     @section('extrascript')
         <!-- tsParticles main script -->

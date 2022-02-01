@@ -2,6 +2,7 @@
 @section('extracss')
     <link rel="stylesheet" type="text/css" href="/css/users/profile.css">
     <link rel="stylesheet" type="text/css" href="/css/components/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/global/global.css">
 @endsection
 @section('title') @yield('titlebox') @endsection
 @section('assets')

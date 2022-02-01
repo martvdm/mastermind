@@ -24,10 +24,10 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'picture' => 'mimes:jpg,bmp,png',
+            'email' => 'required_with:current_password|email',
             'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'min:6|confirmed'
+            'password' => 'nullable|string',
+            'current_password' => 'required|required_with:password'
         ];
     }
 }

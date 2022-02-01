@@ -1,4 +1,4 @@
-.card {
+.floatcard {
     display: flex; /* Will not center vertically and won't work in IE6/7. */
     width: unset;
     height: unset;
@@ -9,4 +9,55 @@
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
     flex-direction: column;
     padding-inline: 10rem;
+}
+.rowdirector {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+}
+.columndirector {
+    display: flex;
+    flex-direction: column;
+}
+input[type=email],input[type=name],input[type=text],input[type=password] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: #2d3748 0.05rem solid;
+    border-radius: 0.4rem;
+    display: flex;
+    height: max-content;
+}
+input[type=email],input[type=name],input[type=text],input[type=password]:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(0,83,255,0.07) inset !important;
+
+}
+button[type=submit] {
+    border: unset;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+    margin: auto 1rem;
+    position: relative;
+    display: flex;
+    float: right;
+    align-self: flex-end;
+    margin-bottom: 0;
+
+}
+button[type=submit]:hover {
+    filter:brightness(1.2);
+    cursor: pointer;
+
+}
+form label {
+    margin: auto;
+    display: flex;
+    width: 100%;
+    height: min-content;
+    justify-content: left;
+    margin-inline: 5%;
+
 }

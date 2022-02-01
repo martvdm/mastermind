@@ -13,11 +13,7 @@
 .logincard .top {
     margin-bottom: 7%;
 }
-.logincard input[type=email],input[type=password] {
-    min-width: 65%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: #2d3748 0.1rem solid;
-    max-width: 85%;
-    display: flex;
+.logincard input[type=email],input[type=name],input[type=text],input[type=password] {
+display: flex;
+    margin: auto;
 }

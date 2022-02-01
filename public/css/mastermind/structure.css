@@ -64,18 +64,7 @@ font-size: 1.7vw;
     font-family: Arial;
     margin: 2px;
 }
-.rowdirector {
-    display: flex;
-    flex-direction: row;
-    display: flex;
-    margin: auto;
-    justify-content: center;
 
-}
-.columndirector {
-    display: flex;
-    flex-direction: column;
-}
 td {
 border: 1px solid black;
     padding: 15px;
