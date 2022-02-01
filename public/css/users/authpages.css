@@ -1,14 +1,22 @@
 .logincard {
-    width: auto;
+    width: min-content;
     height: auto;
     min-width: 7rem;
     max-width: 30rem;
-    margin: auto;
     border-radius: 2.5rem;
     background: white;
     justify-self: center;
-    margin-top: auto;
+    padding-inline: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: auto;
+    margin-top: 10%;
     padding-inline: 5%;
+}
+.logincard h2 {
+    margin: 2%;
 }
 .logincard .top {
     margin-bottom: 7%;
@@ -16,4 +24,12 @@
 .logincard input[type=email],input[type=name],input[type=text],input[type=password] {
 display: flex;
     margin: auto;
+}
+.logincard label {
+    margin: 5%;
+}
+.logincard button[type=submit] {
+    margin: auto;
+    display: flex;
+    margin-bottom: 3%;
 }

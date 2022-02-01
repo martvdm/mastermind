@@ -1,7 +1,7 @@
 @extends('layouts.profilelayout')
 @section('titlebox'){{__('settings')}}@endsection
 @section('contentassets')
-  
+
     <div class="columndirector">
 @if($errors->any())
             <div class="erroralert" id="alert">

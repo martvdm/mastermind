@@ -1,14 +1,42 @@
 .floatcard {
     display: flex; /* Will not center vertically and won't work in IE6/7. */
-    width: unset;
+    width: max-content;
     height: unset;
     padding: 2rem;
-    margin: auto;
+    margin: unset;
     border-radius: 2.5rem;
     background: white;
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
     flex-direction: column;
-    padding-inline: 10rem;
+    flex-wrap: wrap;
+    position: absolute;
+}
+
+.floatcard .footer {
+    display: flex;
+    float: bottom;
+    width: 100%;
+    padding-top: 2rem;
+    justify-content: space-between;
+    height: max-content;
+}
+.floatcard button {
+    border: unset;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+    margin: auto 1rem;
+    position: relative;
+    display: flex;
+    width: max-content;
+
+    margin-bottom: 0;
+}
+.floatcard button:hover {
+    cursor: pointer;
+    filter:brightness(1.2);
 }
 .rowdirector {
     display: flex;
@@ -59,7 +87,8 @@ form label {
     height: min-content;
     justify-content: left;
     margin-inline: 5%;
-
+    font-size: 1.4rem;
+    font-weight: lighter;
 }
 .succesalert {
     width: 70%;
@@ -89,4 +118,8 @@ form label {
 .succesalert ul li,.erroralert li {
     display: flex;
     list-style-type: circle;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }

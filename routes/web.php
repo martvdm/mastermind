@@ -13,10 +13,11 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [\App\Http\Controllers\LeaderboardController::class, 'Give']);
 Route::group(['middleware' => 'auth', 'checklevel'], function (){
 Route::post('/executesave' ,  [App\Http\Controllers\OptionsController::class, 'store']);
 
-Route::get('/', [\App\Http\Controllers\LeaderboardController::class, 'Give']);
+
 
     Route::post("/saveassets", [\App\Http\Controllers\User\ProfileController::class, 'Update_profilepicture']);
 

@@ -25,9 +25,10 @@
 <nav>
     @if (!array_key_exists('sidebar', View::getSections()))
         <div class="header">
-            <img src="/images/lock.png">
-            <a href="/"> Barry <span>Boter</span>
-            </a></div>@endif
+{{--            <img src="/images/lock.png">--}}
+{{--            <a href="/"> Barry <span>Boter</span>--}}
+{{--            </a>--}}
+        </div>@endif
     @guest
         @if (Route::has('login'))
 
