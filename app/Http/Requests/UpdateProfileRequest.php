@@ -30,4 +30,12 @@ class UpdateProfileRequest extends FormRequest
             'current_password' => 'required|required_with:password'
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => __('you need to fill in a name.'),
+            'email.required' => __('you need to fill in an email.'),
+            'current_password.required' => __('you need to fill in your current password for this action'),
+        ];
+    }
 }

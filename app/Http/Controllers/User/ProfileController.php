@@ -41,17 +41,18 @@ class ProfileController extends Controller
             User::where('id', $user->id)->update(['picture' => $file]);
 
         };
-        return redirect('/account/settings');
+        return redirect('/account/settings')->with('message', __('Succesvol Opgeslagen'));;
     }
 
     public function Update_profile(UpdateProfileRequest $request)
     {
+
         if (Hash::check($request->current_password, Auth::user()->password)){
             User::where('id', Auth::user()->id)->update(['email' => $request->email, 'name' => $request->name]);
         if ($request->input('password')) {
             User::where('id', Auth::user()->id)->update(['password' => bcrypt($request->input('password'))]);
         }
         }
-        return redirect('/account/settings');
+        return redirect('/account/settings')->with('message', __('Succesvol Opgeslagen'));
     }
 }

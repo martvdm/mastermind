@@ -1,7 +1,21 @@
 @extends('layouts.profilelayout')
 @section('titlebox'){{__('settings')}}@endsection
 @section('contentassets')
+  
     <div class="columndirector">
+@if($errors->any())
+            <div class="erroralert" id="alert">
+                <ul>
+    @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+            @endforeach
+                </ul>
+            </div>
+        @else
+        @if(session('message'))
+            <div class="succesalert" id="alert">{{session('message')}}</div>
+        @endif
+        @endif
         <div class="rowdirector" style="width: 100%">
             <div class="card" style="width: 25%;">
                 <div class="rowdirector" style="width: 100%; display: flex; ">
@@ -59,9 +73,9 @@
 
 
                             </div>
-                            <input type="submit" id="form" hidden onclick="this.form.submit()">
+                            <input  type="submit" id="form" hidden onclick="this.form.submit()">
                         </form>
-                        <button type="submit" onclick="document.getElementById('form').click();">Save</button>
+                        <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Save</button>
                     </div>
 
                 </div>
