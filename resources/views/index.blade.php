@@ -19,7 +19,7 @@
         </p>
         <div class="footer">
             <button onclick="DivToggle('leaderboard')">Leaderbord</button>
-            <a href="/mastermind/gameinput">
+            <a onclick="DivToggle('gameselector')">
                 <button>Spelen maar!</button>
             </a></div>
     </div>
@@ -74,7 +74,49 @@
 
     </div>
 
+    <div class="popup" id="gameselector" style="visibility: hidden;flex-direction: column">
+        <div class="top">
+            <p></p>
+            <h1>{{__('gameselector')}}</h1>
+            <div onclick="DivToggle('gameselector')" class="close">☓</div>
+        </div>
+        <p style="font-size: 1.2rem;margin-inline: auto; margin-bottom: 4%">Kies hier de spelmodus:</p>
+        <div class="rowdirector" style="height: 100%; justify-content: space-between;width: 100%">
+            <div style="padding-inline: 3%;width: 100%; height: 100%; border-right: 1px lightgrey solid;" class="columndirector">
+                <h2 style="margin-inline: auto;margin-bottom: 5%; color: #00dd83">Makkelijk</h2>
+                   <li style="color: indianred">-0.5x Score</li>
+                <li style="color: indianred; margin-bottom: 5%">Minder uitdagend</li>
+                <li style="color: #00dd83">Meer winkans</li>
+                <li style="color: #00dd83;margin-bottom: 5%">Beginner proof</li>
+                <li>Antwoord: 4 lang</li>
+                <li>Antwoord: Heeft geen duplicaten</li>
+                <button><img src="/images/play-256.png"> </button>
+                <label>Vanaf level 1</label>
+            </div>
+            <div style="padding-inline: 3%;width: 100%; height: 100%; border-right: 1px lightgrey solid;" class="columndirector">
+                <h2 style="margin-inline: auto;margin-bottom: 5%; color: var(--primary-color)">Normaal</h2>
+                <li style="color: var(--primary-color)">1.0x score</li>
+                <li style="color: var(--primary-color); margin-bottom: 5%">Gemiddelde uitdaging</li>
+                <li>Antwoord: 4 lang</li>
+                <li>Antwoord: Heeft wel duplicaten</li>
+                <button><img src="/images/play-256.png"> </button>
+                <label>Vanaf level 5</label>
+            </div>
+            <div style="padding-inline: 3%;width: 100%; height: 100%;" class="columndirector"><h2
+                    style="margin-inline: auto;margin-bottom: 5%; color: orange">Moeilijk</h2>
+                <li style="color: indianred; ">Moeilijk</li>
+                <li style="color: indianred;margin-bottom: 5%">Weinig winkans</li>
+                <li style="color: #00dd83;margin-bottom: 5%">1.5x score</li>
+                <li style="color: #00dd83;margin-bottom: 5%">Meer kans op een leaderbord plaats!</li>
+                <li>Antwoord: 6 lang</li>
+                <li>Antwoord: Heeft wel duplicaten</li>
 
+                <button><img src="/images/play-256.png"> </button>
+                <label>Vanaf level 20</label>
+            </div>
+        </div>
+
+    </div>
 
 
 

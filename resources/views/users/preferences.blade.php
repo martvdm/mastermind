@@ -7,7 +7,7 @@
             <div class="card" style="width: 100%">
                 <div class="rowdirector" style="width: 100%">
                     <div class="columndirector" style="width: 100%;">
-                        
+
                         <form method="post">
                             @csrf
                             <h2>Selecteer een taal:</h2>
@@ -33,6 +33,7 @@
                             <input  type="submit" id="form" hidden onclick="this.form.submit()">
                         </form>
                         <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Save</button>
+
                     </div>
 
                 </div>

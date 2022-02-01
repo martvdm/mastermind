@@ -126,3 +126,41 @@ form label {
     display: flex;
     flex-wrap: wrap;
 }
+#gameselector li {
+    color: rgba(0,0,0,0.71);
+    font-size: 1.4rem;
+}
+#gameselector h2 {
+    font-size: 3rem;
+}
+#gameselector button {
+    height: 5rem;
+    width: 5rem;
+    padding: 0.5rem;
+    margin: auto;
+    border-radius: 0.4rem;
+    border: none;
+    display: flex;
+    background: var(--primary-color);
+    margin-bottom: 0%;
+}
+#gameselector button:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+#gameselector button img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+#gameselector .columndirector {
+    overflow: hidden;
+}
+#gameselector .locked {
+    filter: grayscale(100%);
+}
+#gameselector label {
+    color: rgba(0,0,0,0.71);
+    font-size: 0.8rem;
+    margin: 0%;
+}

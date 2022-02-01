@@ -39,11 +39,11 @@
 
     @else
         <div class="column">
-            <a onclick="DivToggle('dropdown')">
+            <a onclick="DivToggle('dropdown')"><x-role-shower></x-role-shower>
                 <p class="username">
                     {{ Auth::user()->name }} ▼
                 </p>
-                <x-role-shower></x-role-shower>
+
                 <img class="dropdownimg" src="
             @if(isset(Auth::user()->picture))
                     /uploads/pictures/{{Auth::user()->picture}}
