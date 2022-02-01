@@ -35,7 +35,7 @@ nav .username {
     display: flex;
     color: white;
     margin: auto;
-    padding: 0.5vw;
+    padding: 0.5rem;
     border-radius: 5%;
     text-align: center;
     justify-content: center;
@@ -54,7 +54,7 @@ nav .username {
 .header {
     width: auto;
     word-spacing: 1vw;
-    height: 20%;
+    height: 20rem;
     flex-wrap: wrap;
     flex-direction: row;
     display: flex;
@@ -68,12 +68,12 @@ nav .username {
 }
 .header img {
     display: flex;
-    height: 80%;
+    height: 80rem;
     width: auto;
 }
 .header a {
     flex-direction: row;
-    font-size: 2.3vw;
+    font-size: 2.3rem;
     line-height: 0.9vw;
     display: flex;
     justify-content: center;
@@ -99,11 +99,11 @@ nav .username {
 }
 
 .dropdownimg {
-    width: 3.3vw;
+    width: 4.3rem;
     object-fit: cover;
     border-radius: 50%;
     border: white 0.11vw solid;
-    height: 3.3vw;
+    height: 4.3rem;
     margin: auto;
     background-size: cover;
 }
@@ -126,8 +126,8 @@ nav .username {
     position: relative;
     z-index: 1000;
     color: var(--color-outline);
-    font-size: 1.1vw;
-    padding: 0.7vw;
+    font-size: 1.4rem;
+    padding: 0.7rem;
     text-underline: #2d3748;
 }
 .sidebar .logout {
@@ -152,7 +152,7 @@ nav .username {
     color: white;
      width: min-content;
     height: min-content;
-    padding: 0.4vw;
+    padding: 0.5rem;
      /*margin-left: auto;*/
     border-radius: 5%;
 }

@@ -10,7 +10,7 @@
     padding: 1vw;
     border-radius: 2.5rem;
     background: white;
-
+    animation: fadeInUnder 2s;
     box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
 }
 
@@ -20,7 +20,7 @@
     object-fit: cover;
     border-radius: 50%;
     border: white 0.11vw solid;
-    height: 4vw;
+    height: 4rem;
     margin-right: 2%;
     background-size: cover;
 }
@@ -66,7 +66,7 @@
 
 .popup .row {
     height: auto;
-    padding: 2px;
+    padding: 0.4rem;
     display: flex;
     flex-direction: row;
     margin-inline: 10%;
@@ -98,7 +98,7 @@
     display: flex;
     height: auto;
     width: auto;
-    margin: 1vw;
+    margin: 1rem;
     cursor: pointer;
     padding: 2px;
     font-size: 1.5vw;
@@ -114,17 +114,17 @@
     border: unset;
     display: flex;
     height: max-content;
-    border: 1px solid lightgrey;
+    border: 0.04rem solid lightgrey;
     padding: 2px;
     width: auto;
     margin-inline: 20%;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     margin-top: 5%;
 
 }
 .popup .column {
     flex-direction: column;
-    height: 25vw;
+    height: 25rem;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -185,4 +185,8 @@
 }
 
 
-
+@keyframes fadeInUnder {
+    from {
+        top: 100;
+    }
+}

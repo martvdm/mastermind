@@ -45,6 +45,7 @@
 
                     </form>
         </div>
-    </div>
+    </div> <img src="/images/login.png"
+                style="width: 25rem; height: auto; display: flex; position: relative; margin: auto; margin-left: 10rem;">
 @endsection
 

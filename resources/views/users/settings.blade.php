@@ -39,7 +39,7 @@
                                        hidden>
 
                             </div>
-                            <a href="#" onclick="document.getElementById('pictureinput').click();">Select Image</a>
+
 
                         </form>
 

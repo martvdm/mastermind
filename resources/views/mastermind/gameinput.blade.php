@@ -11,7 +11,7 @@
     @endsection
 
 @section('assets')
-    <x-navigation></x-navigation>
+    @extends('components.navigation')
 {{-- Displays the secret gameID in blade--}}
 
 @if(isset($victory) && $victory === true)

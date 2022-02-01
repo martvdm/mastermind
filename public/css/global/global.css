@@ -11,7 +11,10 @@
     flex-wrap: wrap;
     position: absolute;
 }
-
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
 .floatcard .footer {
     display: flex;
     float: bottom;
