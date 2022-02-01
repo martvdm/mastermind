@@ -42,8 +42,8 @@ button[type=submit] {
     margin: auto 1rem;
     position: relative;
     display: flex;
-    float: right;
-    align-self: flex-end;
+    width: max-content;
+
     margin-bottom: 0;
 
 }
