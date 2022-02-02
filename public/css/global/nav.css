@@ -99,11 +99,11 @@ nav .username {
 }
 
 .dropdownimg {
-    width: 4.3rem;
+    width: 3.5rem;
     object-fit: cover;
     border-radius: 50%;
     border: white 0.11vw solid;
-    height: 4.3rem;
+    height: 3.5rem;
     margin: auto;
     background-size: cover;
 }
@@ -126,7 +126,7 @@ nav .username {
     position: relative;
     z-index: 1000;
     color: var(--color-outline);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     padding: 0.7rem;
     text-underline: #2d3748;
 }

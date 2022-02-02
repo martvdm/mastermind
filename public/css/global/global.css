@@ -23,7 +23,7 @@ body {
     justify-content: space-between;
     height: max-content;
 }
-.floatcard button {
+.floatcard button, .popup button {
     border: unset;
     background-color: var(--primary-color);
     color: white;
@@ -37,7 +37,7 @@ body {
 
     margin-bottom: 0;
 }
-.floatcard button:hover {
+.floatcard button:hover, .popup button:hover {
     cursor: pointer;
     filter:brightness(1.2);
 }
@@ -101,7 +101,7 @@ form label {
     margin-bottom: 2%;
     border-radius: 0.4rem;
     border: 0.04rem solid var(--primary-color);
-    background-color: rgba(0, 73, 233, 0.25);
+    background-color: rgb(136, 171, 255);
     color: #0049e9;
     fill-opacity: 50%;
 }
@@ -114,7 +114,7 @@ form label {
     margin-bottom: 2%;
     border-radius: 0.4rem;
     border: 0.04rem solid rgba(255,70,63,0.98);
-    background-color: rgba(255, 70, 63, 0.25);
+    background-color: rgb(255, 186, 183);
     color: rgba(255,70,63,0.98);
     fill-opacity: 50%;
 }
@@ -137,12 +137,13 @@ form label {
     height: 5rem;
     width: 5rem;
     padding: 0.5rem;
-    margin: auto;
+
     border-radius: 0.4rem;
     border: none;
     display: flex;
     background: var(--primary-color);
-    margin-bottom: 0%;
+    margin-inline: auto;
+    margin-top: auto;
 }
 #gameselector button:hover {
     cursor: pointer;
@@ -155,6 +156,12 @@ form label {
 }
 #gameselector .columndirector {
     overflow: hidden;
+}
+#gameselector .blackwhite:hover {
+    filter: grayscale(0%);
+}
+.blackwhite {
+    filter: grayscale(100%);
 }
 #gameselector .locked {
     filter: grayscale(100%);

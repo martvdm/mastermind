@@ -41,7 +41,7 @@ class ProfileController extends Controller
             User::where('id', $user->id)->update(['picture' => $file]);
 
         };
-        return redirect('/account/settings')->with('message', __('Succesvol Opgeslagen'));;
+        return redirect('/account/settings')->with('message', __('Succesvol Opgeslagen'));
     }
 
     public function Update_profile(UpdateProfileRequest $request)

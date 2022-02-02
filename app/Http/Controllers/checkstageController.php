@@ -32,7 +32,7 @@ class checkstageController extends Controller
         $playboard = Session::get('playboard'); #In this array the hole playboard input will be stored
         $playboardcheck = Session::get('playboardcheck');
         $currentstageindex = Session::get('currentstageindex'); #The current stage where the game is in
-        $difficulty = 1.5;
+        $scorefactor = Session::get('scorefactor');
         $victory = false;
         $lost = false;
         $filledcells = 0; #Start of check if the stage is fully filled with integers.
@@ -73,7 +73,7 @@ class checkstageController extends Controller
                     $playboardcheck[$currentstageindex][2] = $playboardcheck[$currentstageindex][2] + 1; # Stands for good (index [2])
                     $randomgameidcheck[$index] = ''; #Deletes value of the randomgameid so will not be checked again.
                     $experienceworth = 3;
-                    $this->addexperience($currentstageindex, $experienceworth, $difficulty);
+                    $this->addexperience($currentstageindex, $experienceworth, $scorefactor);
                 }
 
                 if ($index === array_key_last($randomgameid)) { //Stops check if cell is correct loop
@@ -90,7 +90,7 @@ class checkstageController extends Controller
                             $randomgameidcheck[$index] = '';
                             $playboardcheck[$currentstageindex][1] = $playboardcheck[$currentstageindex][1] + 1; # Stands for exist in game not on right place
                             $experienceworth = 1;
-                            $this->addexperience($currentstageindex, $experienceworth, $difficulty);
+                            $this->addexperience($currentstageindex, $experienceworth, $scorefactor);
 
                         } elseif ($randomgameidcheck[$index] > -1) {
                             $playboardcheck[$currentstageindex][0] = $playboardcheck[$currentstageindex][0] + 1; # Stands for doesn't exist in game
@@ -110,7 +110,7 @@ class checkstageController extends Controller
             $score = $score + $experienceworth;
             Session::put('score', $score);
             $this->Addexperiencetable();
-            $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
+            $this->GametoTable($victory, $playboard, $playboardcheck, $scorefactor, $randomgameid, $lost);
             $this->resetgamesession();
         } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
             $lost = true;
@@ -118,8 +118,8 @@ class checkstageController extends Controller
             $score = $score + $experienceworth;
             Session::put('score', $score);
             $this->Addexperiencetable();
-            $this->GametoTable($victory, $playboard, $playboardcheck, $difficulty, $randomgameid, $lost);
-            $this->resetgamesession();
+            $this->GametoTable($victory, $playboard, $playboardcheck, $scorefactor, $randomgameid, $lost);
+//            $this->resetgamesession();
         }
         if (Session::has('randomgameid') && $filledcells == 4) {
             $currentstageindex = $currentstageindex + 1;
@@ -136,12 +136,14 @@ class checkstageController extends Controller
 
     }
 
-    protected function resetgamesession(): void
+    public function resetgamesession()
     {
-        Session::put('randomgameid', null); #The random gameID and asnwer secret code
-        Session::put('playboard', null); #In this array the hole playboard input will be stored
-        Session::put('playboardcheck', null);
-        Session::put('score', null);
+        Session::forget('playboard');
+        Session::forget('playboardcheck');
+        Session::forget('randomgameid');
+        Session::forget('currentstageindex');
+        Session::forget('victory');
+        Session::forget('lost');
     }
 
     /**

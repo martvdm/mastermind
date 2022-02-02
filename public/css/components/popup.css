@@ -1,13 +1,16 @@
 .popup {
     display: flex;
-    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    margin: 2%;
+    margin-inline: auto;/* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
     top: 0;
-    width: 75rem;
-    height: 80%;
+    bottom: 0;
+    width: 75%;
+    height: auto;
     position: fixed;
-    padding: 1vw;
+    padding: 0.75vw;
+    overflow: hidden;
     border-radius: 2.5rem;
     background: white;
     animation: fadeInUnder 2s;
@@ -95,16 +98,16 @@
     flex-direction: row;
 }
 .popup .close {
-    display: flex;
-    height: auto;
-    width: auto;
-    margin: 1rem;
     cursor: pointer;
-    padding: 2px;
-    font-size: 1.5vw;
+    padding: 1rem;
+    font-size: 1.5rem;
     color: lightgray;
-    justify-self: right;
+    justify-content: center;
+    display: flex;
     user-select: none;
+    text-align: center;
+    height: min-content;
+    width: min-content;
 
 }
 .popup .top .close:hover {

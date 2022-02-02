@@ -20,6 +20,59 @@ class loadsessiongameController extends Controller
 ///    !Make a new random game ID and put
 ///    !Into game session.
 ###############################################
+
+    public function create(Request $request) {
+
+        $difficulty = $request->difficulty;
+
+
+        if (Session::has('playboard')) {
+            return redirect('/')->with('message', 'gameexistalert');
+        }
+        $maxguesses = 10;
+        if ($difficulty == 'easy') {
+            $difficulty = $request->difficulty;
+            $scorefactor = 0.5;
+            $maxcolorid = 4;## Max INT of color ID's / Random game ID INT
+            $duplicates = false;
+
+        } elseif ($difficulty == 'normal' && Auth::user()->experience->level > 4) {
+            $difficulty = $request->difficulty;
+            $scorefactor = 1.0;
+            $maxcolorid = 4;
+            $duplicates = true;
+
+        } elseif ($difficulty == 'hard' && Auth::user()->experience->level > 19) {
+            $difficulty = $request->difficulty;
+            $scorefactor = 1.5;
+            $maxcolorid = 6;
+            $duplicates = true;
+
+        } else {
+            return redirect('/')->withErrors('Oops, er is iets mis gegaan!');
+        }
+        $this->CreateGameAssets($maxcolorid, $duplicates, $scorefactor, $difficulty);
+        $this->createNewPlayboard();
+        return redirect('/mastermind/gameinput');
+
+
+
+    }
+    public function reset() {
+        Session::forget('playboard');
+        Session::forget('playboardcheck');
+        Session::forget('randomgameid');
+        Session::forget('score');
+        Session::forget('currentstageindex');
+        Session::forget('endgamescore');
+        Session::forget('victory');
+        Session::forget('lost');
+        Session::forget('beforegamelevel');
+        Session::forget('difficulty');
+        Session::forget('scorefactor');
+
+        return redirect('/')->with('message', __('Game is verwijderd!'));
+    }
     public function index()
 
     {
@@ -31,28 +84,24 @@ class loadsessiongameController extends Controller
         #               - Every cell in row (stage)
         /////////////
         $currentstageindex = Session::get('currentstageindex');
-        $beforegamelevel = Session::get('beforegamelevel');
-        if (!isset($beforegamelevel)) {
-            $beforegamelevel = Auth::user()->experience->level;
-            Session::put('beforegamelevel', $beforegamelevel);
-        }
-
+        $playboard = Session::get('playboard');
         if (!isset($currentstageindex)) {
             $currentstageindex = 0;
             Session::put('currentstageindex', $currentstageindex);
         }
-        if (!isset($playboard))
+
+        if (!isset($playboard)){
+            $difficulty = Session::get('difficulty');
+            return redirect('/mastermind/create/' . $difficulty);
+        }
         // configs:
-        $maxcolorid = 4; ## Max INT of color ID's / Random game ID INT
-        $maxguesses = 10;
+
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
         ## Gets existing playboard array out of session
         ### !If playboard array doesn't exist:
         #  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
-        $playboard = Session::get('playboard');
-        if (!isset($playboard)) { # If playboard doesn't exist:
-            $playboard = $this->createNewPlayboard($maxguesses);
-        }
+
+
 
 
 
@@ -68,10 +117,6 @@ class loadsessiongameController extends Controller
         $randomgameid = Session::get('randomgameid');
 
         ##
-        if (!isset($randomgameid)) {                ## Check on existing game-session, else? make new session + random ID
-            $randomgameid = $this->createRandomgameid($maxcolorid);
-
-        };
         //////////////////////////////////////////////////////////////
         /// End random gameID generator
         ///
@@ -88,8 +133,7 @@ class loadsessiongameController extends Controller
             'victory' =>  Session::get('victory'),
             'lost' =>  Session::get('lost'),
             'endgamescore' => Session::get('endgamescore'),
-            'score' => Session::get('score'),
-            'beforegamelevel' => Session::get('beforegamelevel')
+            'score' => Session::get('score')
         ]);
     }
 
@@ -166,17 +210,18 @@ class loadsessiongameController extends Controller
      * @param array $playboard
      * @return array
      */
-    protected function createNewPlayboard(int $maxguesses): array
+    protected function createNewPlayboard(): array
     {
 #  ↓
         $playboard = array(); # Say playboard is an array
         $playboardcheck = array();
-        for ($i = 0; $i < $maxguesses; $i++) { # Loop the row (Stages) 10 times in the playboard array.
+        for ($i = 0; $i < 10; $i++) { # Loop the row (Stages) 10 times in the playboard array.
             $playboard[] = [null, null, null, null]; # < The looping array. (Stages)
             $playboardcheck[] = [null, null, null];
 
         }
-
+        $currentstageindex = 0;
+        Session::put('currentstageindex', $currentstageindex);
         Session::put('playboard', $playboard); # Put the entire (empty)playboard inputs in the session.
         Session::put('playboardcheck', $playboardcheck);
         return $playboard; # Put the entire (empty)playboard checks in the session.
@@ -184,14 +229,38 @@ class loadsessiongameController extends Controller
 
     /**
      * @param int $maxcolorid
+     * @param bool $duplicates
+     * @param float $scorefactor
+     * @param $difficulty
      * @return array
      */
-    protected function createRandomgameid(int $maxcolorid): array
+    protected function CreateGameAssets(int $maxcolorid, bool $duplicates, float $scorefactor, $difficulty): array
     {
-        $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
+        $randomgameid = array();
+
+
+        Session::put('scorefactor', $scorefactor);
+        if ($duplicates) {
+            $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
+        } else {
+            for ($i=0; $i < $maxcolorid;) {
+                $uniquerandomint = rand(1, $maxcolorid);
+
+                if (!in_array($uniquerandomint, $randomgameid)) {
+                    $randomgameid[] = $uniquerandomint;
+                    $i++;
+                }
+            }
+        }
 
 
         Session::put('randomgameid', $randomgameid);
         return $randomgameid; ## Puts Random ID in game Session
     }
+
+    /**
+     * @param int $maxcolorid
+     * @return array
+     */
+
 }

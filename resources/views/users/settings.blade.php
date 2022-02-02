@@ -3,19 +3,7 @@
 @section('contentassets')
 
     <div class="columndirector">
-@if($errors->any())
-            <div class="erroralert" id="alert">
-                <ul>
-    @foreach($errors->all() as $error)
-      <li>{{$error}}</li>
-            @endforeach
-                </ul>
-            </div>
-        @else
-        @if(session('message'))
-            <div class="succesalert" id="alert">{{session('message')}}</div>
-        @endif
-        @endif
+<x-AlertVisualiser></x-AlertVisualiser>
         <div class="rowdirector" style="width: 100%">
             <div class="card" style="width: 25%;">
                 <div class="rowdirector" style="width: 100%; display: flex; ">

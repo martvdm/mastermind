@@ -20,6 +20,8 @@ Route::post('/executesave' ,  [App\Http\Controllers\OptionsController::class, 's
 
 
     Route::post("/saveassets", [\App\Http\Controllers\User\ProfileController::class, 'Update_profilepicture']);
+    Route::get('/mastermind/create/{difficulty}' ,  [App\Http\Controllers\loadsessiongameController::class, 'create']);
+    Route::get('/mastermind/reset', [App\Http\Controllers\loadsessiongameController::class, 'reset']);
 
     Route::get('/mastermind/gameinput' ,  [App\Http\Controllers\loadsessiongameController::class, 'index']);
 

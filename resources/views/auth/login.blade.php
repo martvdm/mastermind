@@ -4,6 +4,7 @@
 @section('assets')
     <div class="logincard card" style="justify-content: center">
         <div class="top" style="width: min-content; display: flex; margin: auto; flex-direction: row"><a><h1>{{__('Login')}}</a>/<a style=" text-decoration: none;color: lightslategrey" href="{{route('register')}}">{{__('Register')}}</h1></a></div>
+        <x-alertvisualiser></x-alertvisualiser>
         @error('email')
 
         <strong>{{ $message }}</strong>
