@@ -78,7 +78,7 @@
         <div class="top">
             <p style="padding-inline: 1rem"></p>
             <h1>{{__('gameselector')}}</h1>
-            <div onclick="DivToggle('gameselector')" class="close" style="padding: 1rem"><p onclick="DivToggle('gameselector')">☓</p></div>
+            <div onclick="DivToggle('gameselector')" class="close">x</div>
         </div>
 {{--        <p style="font-size: 1.2rem;margin-inline: auto;">Kies hier de spelmodus:</p>--}}
         <div class="rowdirector" style="height: 100%; justify-content: space-between;width: 100%">

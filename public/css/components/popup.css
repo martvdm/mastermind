@@ -1,6 +1,6 @@
 .popup {
     display: flex;
-    margin: 2%;
+    margin: 4%;
     margin-inline: auto;/* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
@@ -98,19 +98,17 @@
     flex-direction: row;
 }
 .popup .close {
+    z-index: 2000;
     cursor: pointer;
-    padding: 1rem;
+    padding: 1vw;
     font-size: 1.5rem;
     color: lightgray;
     justify-content: center;
     display: flex;
     user-select: none;
-    text-align: center;
-    height: min-content;
-    width: min-content;
 
 }
-.popup .top .close:hover {
+.popup .close:hover {
     color: gray;
 }
 .popup input {

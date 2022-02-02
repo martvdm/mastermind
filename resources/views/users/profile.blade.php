@@ -1,5 +1,5 @@
 @extends('layouts.profilelayout')
-@section('titlebox'){{__('profile')}}@endsection
+@section('titlebox'){{__('Profiel')}}@endsection
 @section('extrascript') @endsection
 @section('contentassets')
     <a href="/account/settings">

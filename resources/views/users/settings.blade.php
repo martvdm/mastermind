@@ -21,7 +21,7 @@
 @endif
                                     " onmouseenter="DivToggle('imageinput')">
                                 <div id="imageinput" style="visibility: hidden" onmouseleave="DivToggle('imageinput')">
-                                    Upload Image
+                                    Upload Afbeelding
                                 </div>
                                 <input id="pictureinput" type="file" name="picture" onchange="this.form.submit()"
                                        hidden>
@@ -46,7 +46,7 @@
                             @csrf
                             <div class="rowdirector"
                                  style="margin: 2%;justify-content: space-between; align-content: flex-start">
-                                <label>Name</label>
+                                <label>Naam</label>
                                 <input type="text" name="name" value="{{Auth::user()->name}}">
                                 <label>Email</label>
                                 <input type="email" name="email" value="{{Auth::user()->email}}">
@@ -63,7 +63,7 @@
                             </div>
                             <input  type="submit" id="form" hidden onclick="this.form.submit()">
                         </form>
-                        <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Save</button>
+                        <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Opslaan</button>
                     </div>
 
                 </div>

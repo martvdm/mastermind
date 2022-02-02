@@ -253,7 +253,7 @@ class loadsessiongameController extends Controller
             }
         }
 
-
+        Session::put('maxcolorid', $maxcolorid);
         Session::put('randomgameid', $randomgameid);
         return $randomgameid; ## Puts Random ID in game Session
     }

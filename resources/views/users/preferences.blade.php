@@ -25,14 +25,14 @@
                                  style="margin: 2%;justify-content: space-between; align-content: flex-start">
 
                                 <select>
-                                    <option>NL</option>
-                                    <option>EN</option>
+                                    <option>Donker</option>
+                                    <option>Licht</option>
                                 </select>
 
                             </div>
                             <input  type="submit" id="form" hidden onclick="this.form.submit()">
                         </form>
-                        <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Save</button>
+                        <button style="align-self: flex-end" type="submit" onclick="document.getElementById('form').click();">Opslaan</button>
 
                     </div>
 

@@ -1,9 +1,4 @@
-body {
-    background-color: #05164c;
-    margin: 0;
-    min-height: 100vh;
-    font-family: SharpSans,Helvetica,Arial,sans-serif;
-}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -25,6 +20,24 @@ body {
     from {
         opacity: 0;
     }
+}
+.playboard {
+    background: var(--color-outline);
+    display: flex;
+    margin: auto;
+    width: max-content;
+    height: auto;
+    padding: 0.75vw;
+    overflow: hidden;
+    border-radius: 2.5rem;
+    background: white;
+    animation: fadeInUnder 2s;
+    box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+    top: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 2%;
 }
 .victoryscreen h1 {
     color: white;
@@ -108,38 +121,40 @@ border: 1px solid black;
     cursor: url('/images/greencursor.png'), auto;
 }
 .selectcontainer {
+    width: 90%;
+    justify-content: center;
+    justify-self: center;
+    margin-inline: auto;
+    height: auto;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     margin-right: 0;
     padding-top: 7.6%;
 }
 .selectfield {
-    border: 2px solid black;
+    border: 2px solid var(--primary-color);
     margin: auto;
     position: relative;
     display: flex;
-    padding: 20px;
-    border-radius: 50%;
+    padding: 1.4rem;
+    margin: 1%;
+    border-radius: 0.4rem;
+    flex-wrap: wrap;
+    height: 3rem;
+    width:  3rem;
 
-
+}
+.selectfield .check {
+    height: 50%;
+    border: 0.01rem solid var(--primary-color);
+    width: 50%;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
 }
 .colorselecter {
     cursor: crosshair;
     z-index: 100;
-}
-.selectfield:focus  {
-    border: 2px dotted blue;
-}
-.selectfield:active {
-    border: 2px dotted blue;
-}
-.testcontainer {
-    margin: auto;
-    display: flex;
-    position: relative;
-    margin-top: auto;
-    justify-content: center;
-    z-index: 0;
 }
 .secretcodecontainer
 {
@@ -168,29 +183,26 @@ a {
 }
 .checkbutton {
     cursor: pointer;
-    padding: 25px;
-    background-color: dodgerblue;
+    padding: 0.1rem;
+    background-color: var(--primary-color);
     color: white;
-    font-family: "Courier New";
+    font-family: var(--standard-fontfamily);
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     border-radius: 25px;
     border: unset;
-    margin: auto;
-    margin-top: 5%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+    margin-inline: auto;
     transition: 250ms all ease-in-out;
 }
 .checkbutton:hover {
     background-color: cornflowerblue;
 }
+
 form .active button {
     background-color: lightgreen;
-}
-#loader {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    background: #0049e9;
 }

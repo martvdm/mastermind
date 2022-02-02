@@ -111,7 +111,6 @@ class checkstageController extends Controller
             Session::put('score', $score);
             $this->Addexperiencetable();
             $this->GametoTable($victory, $playboard, $playboardcheck, $scorefactor, $randomgameid, $lost);
-            $this->resetgamesession();
         } elseif ($currentstageindex === array_key_last($playboard)) { //If currentstageindex is above last array index, reset session.
             $lost = true;
             $experienceworth = 0;
@@ -131,20 +130,13 @@ class checkstageController extends Controller
         Session::put('victory', $victory);
         Session::put('lost', $lost);
         Session::put('randomgameid', $randomgameid);
+        Session::put('playboard', $playboard);
         return redirect('/mastermind/gameinput');
 
 
     }
 
-    public function resetgamesession()
-    {
-        Session::forget('playboard');
-        Session::forget('playboardcheck');
-        Session::forget('randomgameid');
-        Session::forget('currentstageindex');
-        Session::forget('victory');
-        Session::forget('lost');
-    }
+
 
     /**
      * @param $score
