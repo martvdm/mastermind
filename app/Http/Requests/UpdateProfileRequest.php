@@ -33,8 +33,8 @@ class UpdateProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => __('you need to fill in a name.'),
-            'email.required' => __('you need to fill in an email.'),
+            'name.required' => __('Je moet een naam invullen!'),
+            'email.required' => __('Je moet een Email invullen!'),
             'current_password.required' => __('you need to fill in your current password for this action'),
         ];
     }
