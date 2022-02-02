@@ -36,10 +36,10 @@
         <input type="text" id="searchbar" placeholder="Zoeken..." onkeyup="myFunction()">
         <div class="column leaderboard" id="searcharea" style="flex-direction: column;">
             <div class="row" style="margin-top: 5%">
-                <label>Place</label>
-                <label>User</label>
+                <label>Plaats</label>
+                <label>Gebruiker</label>
                 <label>Score</label>
-                <label style="width: min-content; margin-right: 7%">Difficulty</label>
+                <label style="width: min-content; margin-right: 7%">Moeilijkheid</label>
             </div>
             @foreach($games as $game)
                 <div class="row"><p class="placement{{$loop->index+1}}">#{{$loop->index+1}} </p><label> <img
@@ -57,13 +57,13 @@
 
                     @if($game->difficulty == 0.5)
                         <label style="color: white; background: lightgreen; width: min-content;margin-right: 5%;"
-                               class="difficulty">{{__('Easy')}}</label>
+                               class="difficulty">{{__('Makkelijk')}}</label>
                     @elseif($game->difficulty == 1)
                         <label style="color: white; background: orange; width: min-content;margin-right: 5%;"
-                               class="difficulty">{{__('Normal')}}</label>
+                               class="difficulty">{{__('Normaal')}}</label>
                     @elseif($game->difficulty == 1.5)
                         <label style="color: white; background: darkred; width: min-content; margin-right: 7%;"
-                               class="difficulty">{{__('Hard')}}</label>
+                               class="difficulty">{{__('Moeilijk')}}</label>
                     @endif
 
                 </div>
@@ -77,7 +77,7 @@
     <div class="popup" id="gameselector" style="width: 80%;visibility: hidden; flex-direction: column">
         <div class="top">
             <p style="padding-inline: 1rem"></p>
-            <h1>{{__('gameselector')}}</h1>
+            <h1>{{__('Spel kiezen')}}</h1>
             <div onclick="DivToggle('gameselector')" class="close">x</div>
         </div>
 {{--        <p style="font-size: 1.2rem;margin-inline: auto;">Kies hier de spelmodus:</p>--}}
