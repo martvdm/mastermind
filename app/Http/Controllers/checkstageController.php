@@ -184,6 +184,8 @@ class checkstageController extends Controller
                 'difficulty' => $difficulty,
                 'randomgameid' => $randomgameid,
                 'status' => 'lost'));
+
+
         }
     }
 

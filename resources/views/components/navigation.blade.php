@@ -72,16 +72,16 @@
 @if (array_key_exists('sidebar', View::getSections()))
     <div class="sidebar">
         <a href="/" style="justify-content: center; padding-bottom: 7%;margin-bottom: 2%; border-bottom: 1px lightgrey solid;">Terug</a>
-        <a href="/account/dashboard">{{__('profile')}}</a>
-        <a href="/account/settings">{{__('settings')}}</a>
-        <a href="/account/preferences">{{__('preferences')}}</a>
+        <a href="/account/dashboard">{{__('Profiel')}}</a>
+        <a href="/account/settings">{{__('Instelling')}}</a>
+        <a href="/account/preferences">{{__('Voorkeuren')}}</a>
         @if(isset(Auth::user()->roles->id) && Auth::user()->roles->id == 2)
             <a style="margin-top: 10%; color: red; justify-content: center; padding-bottom: 7%;margin-bottom: 2%; border-bottom: 1px lightgrey solid;">Admin</a>
             <a style="color: red" href="/admin/users">{{__('User Management')}}</a>
             <a style="color: red" href="/admin/roles">{{__('Role Management')}}</a>@endif
 
         <a class="logout" href="{{ route('logout') }}"
-           onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{__('logout')}}</a>
+           onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{__('Uitloggen')}}</a>
 
     </div>
 @endif

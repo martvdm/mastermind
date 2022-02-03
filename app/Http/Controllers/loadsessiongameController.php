@@ -240,6 +240,7 @@ class loadsessiongameController extends Controller
 
 
         Session::put('scorefactor', $scorefactor);
+        Session::put('difficulty', $difficulty);
         if ($duplicates) {
             $randomgameid = [rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid), rand(1, $maxcolorid)]; ##   Makes new Random ID
         } else {

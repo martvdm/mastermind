@@ -18,7 +18,17 @@
                     <div onclick="DivToggle('popup')" class="close" style="padding: 0.1rem"><p
                             onclick="DivToggle('gameselector')">☓</p></div>
                 </div>
-                <p style="margin-inline: auto; margin-top: 3%; margin-bottom: 3%">Er is nog een game bezig! {{Session::get('difficulty')}}</p>
+                <p style="margin-inline: auto; margin-top: 3%; margin-bottom: 3%">Er is nog een game bezig! </p>
+                @if(Session::get('difficulty') == 'easy')
+                    <label style="color: green; width: max-content; margin-inline: auto; display: flex; font-weight: bold"
+                           class="difficulty">{{__('Makkelijk')}}</label>
+                @elseif(Session::get('difficulty') == 'normal')
+                    <label style="color: var(--primary-color); width: max-content; margin-inline: auto; display: flex;font-weight: bold"
+                           class="difficulty">{{__('Normaal')}}</label>
+                @elseif(Session::get('difficulty') ==  'hard')
+                    <label style="color: red; width: max-content; margin-inline: auto; display: flex; font-weight: bold"
+                           class="difficulty">{{__('Moeilijk')}}</label>
+                @endif
                 <div class="rowdirector"><a href="/mastermind/reset">
                         <button style="background: #c43535">Verwijderen</button>
                     </a>

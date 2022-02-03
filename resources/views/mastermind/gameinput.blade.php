@@ -35,14 +35,15 @@
         {{Session::forget('beforegamelevel')}}
         {{Session::forget('playboard')}}
         {{Session::forget('playboardcheck')}}
-        <div class="row">
-        <a href="/mastermind/reset">
-        <button class="checkbutton" style="margin-top: 0px">Reset</button>
+        {{Session::forget('score')}}
+        <div style="width: 80%; margin-inline: auto; flex-direction: row; justify-content: space-between; margin-bottom: 5%">
+        <a href="/mastermind/gameinput">
+        <button class="bluebutton" >Opnieuw</button>
 
         </a>
 
         <a href="/">
-            <button class="checkbutton" style="margin-top: 0px">Home</button>
+            <button class="bluebutton">Hoofdscherm</button>
         </a>
     </div></div>
 @endif
@@ -56,6 +57,7 @@
         {{Session::forget('beforegamelevel')}}
         {{Session::forget('playboard')}}
         {{Session::forget('playboardcheck')}}
+        {{Session::forget('score')}}
         <h1 style="font-size: 3vw">Score: {{ $endgamescore }}</h1>
         <h1>test</h1>
         <div class="rowdirector">
@@ -88,6 +90,10 @@
                             <div class="redcursor">
                                 @elseif($selectedcolorid == 4)
                                     <div class="greencursor">
+                                        @elseif($selectedcolorid == 5)
+                                            <div class="purplecursor">
+                                                @elseif($selectedcolorid == 6)
+                                                    <div class="orangecursor">
 @endif
 
 <div class="columndirector playboard" style="padding-inline: 1%;flex-direction: column-reverse;">
